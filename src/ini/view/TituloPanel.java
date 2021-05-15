@@ -23,17 +23,18 @@ public class TituloPanel extends JPanel{
     public TituloPanel() {
         setLayout(new FlowLayout(FlowLayout.CENTER,30,20));
         
-        titulo.setForeground(new Color(235, 235, 245));
+        //titulo.setForeground(new Color(235, 235, 245));
+        titulo.setForeground(new Color(250, 5, 250));
         titulo.setFont(new Font("Monoespaced", Font.BOLD, 30));
         add(titulo);
                 
         Border superior = BorderFactory.createMatteBorder(1,0,0,0,new Color(255,250,250));
         Border intermedio = BorderFactory.createEmptyBorder(30, 20, 0, 20);
         
-        /* feo
-        Border inferior = BorderFactory.createMatteBorder(6,6,6,6,new Color(50,50,50));
-        Border interior = BorderFactory.createMatteBorder(3,3,3,3,new Color(100,100,100));
-        Border interior2 = BorderFactory.createMatteBorder(1,0,1,0,new Color(200,200,200));
+        /* colorines
+        Border inferior = BorderFactory.createMatteBorder(6,6,6,6,new Color(45,5,40));
+        Border interior = BorderFactory.createMatteBorder(6,6,6,6,new Color(45,5,80));
+        Border interior2 = BorderFactory.createMatteBorder(3,0,3,0,new Color(45,5,160));
         */
         
         /* iluminacion
@@ -41,15 +42,23 @@ public class TituloPanel extends JPanel{
         Border interior = BorderFactory.createMatteBorder(4,4,4,4,new Color(40,40,40));
         Border interior2 = BorderFactory.createMatteBorder(4,0,4,0,new Color(60,60,60));
         */
-        Border inferior = BorderFactory.createMatteBorder(6,6,6,6,new Color(23,23,23));
-        Border interior = BorderFactory.createMatteBorder(4,4,4,4,new Color(40,40,40));
-        Border interior2 = BorderFactory.createMatteBorder(4,0,4,0,new Color(60,60,60));
+        
+        /* rojo
+        Border inferior = BorderFactory.createMatteBorder(6,6,6,6,new Color(40,5,5));
+        Border interior = BorderFactory.createMatteBorder(6,6,6,6,new Color(80,5,5));
+        Border interior2 = BorderFactory.createMatteBorder(3,0,3,0,new Color(160,5,5));
+        */
         
         /* azul
         Border inferior = BorderFactory.createMatteBorder(6,6,6,6,new Color(5,5,40));
         Border interior = BorderFactory.createMatteBorder(6,6,6,6,new Color(5,5,80));
         Border interior2 = BorderFactory.createMatteBorder(3,0,3,0,new Color(5,5,160));
         */
+        
+        
+        Border inferior = BorderFactory.createMatteBorder(6,6,6,6,new Color(40,5,40));
+        Border interior = BorderFactory.createMatteBorder(6,6,6,6,new Color(80,5,80));
+        Border interior2 = BorderFactory.createMatteBorder(3,0,3,0,new Color(160,5,160));
 
         setBorder(BorderFactory.createCompoundBorder(superior, BorderFactory.createCompoundBorder(intermedio, BorderFactory.createCompoundBorder(inferior, BorderFactory.createCompoundBorder(interior, interior2)))));
     }

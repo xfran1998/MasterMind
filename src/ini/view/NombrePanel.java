@@ -32,14 +32,15 @@ class NombrePanel extends JPanel{
         
         texto = new JLabel("Introduce tu nombre");
         texto.setAlignmentX(CENTER_ALIGNMENT);
-        texto.setForeground(new Color(215, 215, 225));
+        texto.setForeground(new Color(10, 159, 224));
+        //texto.setForeground(new Color(250, 240, 240));
         texto.setFont(new Font("Monoespaced", Font.PLAIN, 20));
         
         JPanel contenedor = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
         
         nombre = new JTextField();
         nombre.setPreferredSize(new Dimension(250, 40));
-        nombre.setBackground(new Color(3,3,3));
+        nombre.setBackground(new Color(15,15,15));
         nombre.setForeground(Color.white);
         nombre.setFont(new Font("Monoespaced", Font.PLAIN, 18));
         nombre.setHorizontalAlignment(JLabel.CENTER);

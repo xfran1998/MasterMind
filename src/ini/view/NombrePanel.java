@@ -32,7 +32,7 @@ class NombrePanel extends JPanel{
         
         texto = new JLabel("Introduce tu nombre");
         texto.setAlignmentX(CENTER_ALIGNMENT);
-        texto.setForeground(new Color(10, 159, 224));
+        texto.setForeground(new Color(210, 200, 200));
         //texto.setForeground(new Color(250, 240, 240));
         texto.setFont(new Font("Monoespaced", Font.PLAIN, 20));
         
@@ -52,15 +52,24 @@ class NombrePanel extends JPanel{
         
         boton = new JButton("Comienza a jugar");
         boton.setAlignmentX(CENTER_ALIGNMENT);
-        boton.setBackground(new Color(40, 40, 40));
-        boton.setForeground(new Color(240, 240, 240));
+        boton.setBackground(new Color(0, 0, 0));
+        boton.setForeground(new Color(210, 200, 200));
         boton.setFont(new Font("Monoespaced", Font.PLAIN, 18));
         boton.setFocusPainted(false);
         
-        Border bordeExt = BorderFactory.createMatteBorder(2, 1, 2, 1, new Color(80, 80, 80));
+        Border bordeExt = BorderFactory.createMatteBorder(2, 2, 0, 0, new Color(65, 63, 245));
+        Border bordeExt2 = BorderFactory.createMatteBorder(0, 2, 2, 0, new Color(111, 65, 245));
+        Border bordeExt3 = BorderFactory.createMatteBorder(0, 0, 2, 2, new Color(147, 62, 245));
+        Border bordeExt4 = BorderFactory.createMatteBorder(2, 0, 0, 2, new Color(188, 63, 245));
+        Border bordeExt5 = BorderFactory.createMatteBorder(2, 2, 0, 0, new Color(236, 63, 245));
+        Border bordeExt6 = BorderFactory.createMatteBorder(0, 2, 2, 0, new Color(245, 53, 146));
+        Border bordeExt7 = BorderFactory.createMatteBorder(0, 0, 2, 2, new Color(245, 53, 66));
+        Border bordeExt8 = BorderFactory.createMatteBorder(2, 0, 0, 2, new Color(245, 81, 49));
+        
         Border bordeInt = BorderFactory.createEmptyBorder(10,20,10,20);
         
-        boton.setBorder(BorderFactory.createCompoundBorder(bordeExt,bordeInt));
+        
+        boton.setBorder(BorderFactory.createCompoundBorder(bordeExt,BorderFactory.createCompoundBorder(bordeExt2, BorderFactory.createCompoundBorder(bordeExt3, BorderFactory.createCompoundBorder(bordeExt4, BorderFactory.createCompoundBorder(bordeExt5, BorderFactory.createCompoundBorder(bordeExt6, BorderFactory.createCompoundBorder(bordeExt7,BorderFactory.createCompoundBorder(bordeExt8, bordeInt)))))))));
         
         contenedor.add(nombre);
         
@@ -68,7 +77,7 @@ class NombrePanel extends JPanel{
         add(contenedor);
         add(boton);
         
-        Border superior = BorderFactory.createEmptyBorder(50, 0, 130, 0);
+        Border superior = BorderFactory.createEmptyBorder(50, 0, 110, 0);
         setBorder(superior);
         
     }

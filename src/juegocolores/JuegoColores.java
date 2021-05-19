@@ -6,6 +6,7 @@
 package juegocolores;
 
 import ini.view.JuegoColoresView;
+import jug1.view.Jug1View;
 
 /**
  *
@@ -18,7 +19,7 @@ public class JuegoColores {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JuegoColoresView view = new JuegoColoresView();
+        Jug1View view = new Jug1View();
     }
     
 }

@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ini.view;
+package jug1.view;
 
 import ini.view.MyDefaultMetalTheme3;
-import ini.view.PreferencesPanel;
-import ini.view.NombrePanel;
 import ini.view.TituloPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,23 +13,19 @@ import javax.swing.UIManager;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
-/**
- *
- * @author oscar
- */
-public class JuegoColoresView extends JFrame{
-    private TituloPanel titulo;
-    private NombrePanel nombre;
-    private PreferencesPanel pref;
-            
-    public JuegoColoresView(){
+public class Jug1View extends JFrame{
+    private ColoresPanel colores;
+    private SeleccionPanel seleccion;
+    private BotonPanel boton;
+
+    public Jug1View(){
         
         //estilo de la ventana
         setLayout(new BorderLayout());
         //hacer que al cerrar desde la x se cierre el programa
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800,600);
-        setTitle("Mastermind");
+        setSize(600,400);
+        setTitle("Mastermind - Jugador 1");
         setResizable(false);
         
         this.setLocationRelativeTo(null);
@@ -55,16 +44,18 @@ public class JuegoColoresView extends JFrame{
 
         SwingUtilities.updateComponentTreeUI(this);
         
-        
         //componentes de la vista
-        titulo = new TituloPanel();
-        nombre = new NombrePanel();
-        pref = new PreferencesPanel();
         
-        add(titulo, BorderLayout.NORTH);
-        add(nombre, BorderLayout.CENTER);
-        add(pref, BorderLayout.SOUTH);
+        colores = new ColoresPanel();
+        colores.setPreferredSize(new Dimension(0, 160));
         
+        seleccion = new SeleccionPanel();
+        
+        boton = new BotonPanel();
+        
+        add(colores, BorderLayout.NORTH);
+        add(seleccion, BorderLayout.CENTER);
+        add(boton, BorderLayout.SOUTH);
         
         this.setVisible(true);
         

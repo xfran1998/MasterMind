@@ -44,6 +44,7 @@ public class BotonPanel extends JPanel{
 
         boton.setBorder(BorderFactory.createCompoundBorder(bordeExt,BorderFactory.createCompoundBorder(bordeExt2, BorderFactory.createCompoundBorder(bordeExt3, BorderFactory.createCompoundBorder(bordeExt4, BorderFactory.createCompoundBorder(bordeExt5, BorderFactory.createCompoundBorder(bordeExt6, BorderFactory.createCompoundBorder(bordeExt7,BorderFactory.createCompoundBorder(bordeExt8, bordeInt)))))))));
 
+        //boton
         add(boton);
     }
 }

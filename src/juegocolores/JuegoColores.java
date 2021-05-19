@@ -7,6 +7,7 @@ package juegocolores;
 
 import ini.view.JuegoColoresView;
 import jug1.view.Jug1View;
+import jug2.view.Jug2View;
 
 /**
  *
@@ -20,7 +21,7 @@ public class JuegoColores {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Jug1View view = new Jug1View();
+        Jug2View view = new Jug2View();
     }
     
 }

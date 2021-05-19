@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class ColoresPanel extends JPanel{
     private final Color[] colores = {Color.red, Color.yellow, Color.blue, Color.green, Color.pink, new Color(112, 36, 160)};

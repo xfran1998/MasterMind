@@ -20,6 +20,7 @@ import javax.swing.border.Border;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 class NombrePanel extends JPanel{
     private JLabel texto;

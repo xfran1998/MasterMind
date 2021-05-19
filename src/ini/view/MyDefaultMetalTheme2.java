@@ -11,6 +11,7 @@ import javax.swing.plaf.metal.DefaultMetalTheme;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class MyDefaultMetalTheme2 extends DefaultMetalTheme {
     //primer plano

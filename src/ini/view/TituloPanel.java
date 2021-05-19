@@ -16,6 +16,7 @@ import javax.swing.border.Border;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class TituloPanel extends JPanel{
     private JLabel titulo = new JLabel("MASTERMIND COLOR");

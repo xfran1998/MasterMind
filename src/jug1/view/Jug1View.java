@@ -13,6 +13,11 @@ import javax.swing.UIManager;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
+/**
+ *
+ * @author oscar
+ * @author francisco
+ */
 public class Jug1View extends JFrame{
     private ColoresPanel colores;
     private SeleccionPanel seleccion;

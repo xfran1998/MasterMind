@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 class PreferencesPanel extends JPanel{
     JCheckBox check1, check2;

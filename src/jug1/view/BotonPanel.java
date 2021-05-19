@@ -16,6 +16,7 @@ import javax.swing.border.Border;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class BotonPanel extends JPanel{
     private JButton boton;

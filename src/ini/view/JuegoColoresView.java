@@ -23,6 +23,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class JuegoColoresView extends JFrame{
     private TituloPanel titulo;

@@ -11,6 +11,7 @@ import jug1.view.Jug1View;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class JuegoColores {
 

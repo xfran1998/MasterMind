@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class SeleccionPanel extends JPanel{
     private final int radio = 80;

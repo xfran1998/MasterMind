@@ -26,7 +26,7 @@ public class IzquierdaPanel extends JPanel{
         
         
         colores = new ColoresPanel(2);
-        colores.setPreferredSize(new Dimension(120, 120));
+        colores.setPreferredSize(new Dimension(110, 110));
         
         add(intentos, BorderLayout.CENTER);
         add(colores, BorderLayout.SOUTH);

@@ -19,13 +19,13 @@ import javax.swing.JPanel;
  * @author francisco
  */
 public class ColoresPanel extends JPanel{
-    private final Color[] colores = {Color.red, Color.yellow, Color.blue, Color.green, Color.pink, new Color(112, 36, 160)};
-    private final String[] numeros = {"1","2","3","4","5","6"};
+    private final Color[] colores = {Color.red, Color.yellow, Color.blue, Color.green, Color.pink, new Color(112, 36, 160), new Color(150, 75, 0), new Color(63, 224, 208)};
+    private final String[] numeros = {"1","2","3","4","5","6","7","8"};
     private int ancho;
     private int altura;
     
     private int borde;
-    
+    private int tipo;
     
     
     public ColoresPanel(int tipo){
@@ -36,6 +36,7 @@ public class ColoresPanel extends JPanel{
         else if (tipo == 2)
             borde = 2;
         
+        this.tipo = tipo;
         
         setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(borde,borde,borde,borde),BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(250, 250, 250))));
     }
@@ -45,7 +46,7 @@ public class ColoresPanel extends JPanel{
     {
         super.paintComponent(g);
         
-        ancho = (this.getBounds().width - borde*2)/6;
+        ancho = (this.getBounds().width - borde*2)/8;
         altura = (this.getBounds().height - borde*2);
         
         Graphics2D g2 = (Graphics2D)g;
@@ -55,7 +56,7 @@ public class ColoresPanel extends JPanel{
         for(int i = 0; i < colores.length; i++)
         {
             g2.setColor(colores[i]);
-            g2.fillRect(borde+(ancho*i), borde, ancho+2, altura);
+            g2.fillRect(borde+(ancho*i), borde, (tipo==1)? (ancho+4):(ancho), altura);
             
             System.out.println(ancho*i);
             

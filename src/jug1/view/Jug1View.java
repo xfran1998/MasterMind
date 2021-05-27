@@ -56,7 +56,7 @@ public class Jug1View extends JFrame{
         
         seleccion = new SeleccionPanel(1);
         
-        boton = new BotonPanel();
+        boton = new BotonPanel(1);
         
         add(colores, BorderLayout.NORTH);
         add(seleccion, BorderLayout.CENTER);

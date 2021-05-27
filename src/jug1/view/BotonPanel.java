@@ -8,6 +8,7 @@ package jug1.view;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -21,10 +22,15 @@ import javax.swing.border.Border;
 public class BotonPanel extends JPanel{
     private JButton boton;
     
-    public BotonPanel(){
-        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+    public BotonPanel(int tipo){
+        setLayout(new GridBagLayout());
 
+        JPanel centrar = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        
         boton = new JButton("Acabar turno");
+        if (tipo == 2)
+            boton.setText("Probar Suerte");
+        
         boton.setAlignmentX(CENTER_ALIGNMENT);
         boton.setBackground(new Color(0, 0, 0));
         boton.setForeground(new Color(210, 200, 200));
@@ -44,7 +50,7 @@ public class BotonPanel extends JPanel{
 
         boton.setBorder(BorderFactory.createCompoundBorder(bordeExt,BorderFactory.createCompoundBorder(bordeExt2, BorderFactory.createCompoundBorder(bordeExt3, BorderFactory.createCompoundBorder(bordeExt4, BorderFactory.createCompoundBorder(bordeExt5, BorderFactory.createCompoundBorder(bordeExt6, BorderFactory.createCompoundBorder(bordeExt7,BorderFactory.createCompoundBorder(bordeExt8, bordeInt)))))))));
 
-        //boton
-        add(boton);
+        centrar.add(boton);
+        add(centrar);
     }
 }

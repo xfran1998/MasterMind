@@ -23,9 +23,9 @@ public class DerechaPanel extends JPanel{
         setLayout(new BorderLayout());
         
         audio = new AudioPanel();
-        audio.setPreferredSize(new Dimension(120,120));
+        audio.setPreferredSize(new Dimension(110,110));
         
-        boton = new BotonPanel();
+        boton = new BotonPanel(2);
         
         avatar = new AvatarPanel();
         avatar.setPreferredSize(new Dimension(400,400));

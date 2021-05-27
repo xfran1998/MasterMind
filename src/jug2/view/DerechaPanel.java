@@ -5,10 +5,33 @@
  */
 package jug2.view;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JPanel;
+import jug1.view.BotonPanel;
+
 /**
  *
  * @author oscar
  */
-public class DerechaPanel {
+public class DerechaPanel extends JPanel{
+    private AudioPanel audio;
+    private BotonPanel boton;
+    private AvatarPanel avatar;
     
+    public DerechaPanel(){
+        setLayout(new BorderLayout());
+        
+        audio = new AudioPanel();
+        audio.setPreferredSize(new Dimension(120,120));
+        
+        boton = new BotonPanel();
+        
+        avatar = new AvatarPanel();
+        avatar.setPreferredSize(new Dimension(400,400));
+        
+        add(audio, BorderLayout.SOUTH);
+        add(boton, BorderLayout.CENTER);
+        add(avatar, BorderLayout.NORTH);
+    }
 }

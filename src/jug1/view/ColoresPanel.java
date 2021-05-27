@@ -24,14 +24,20 @@ public class ColoresPanel extends JPanel{
     private int ancho;
     private int altura;
     
+    private int borde;
     
     
-    public ColoresPanel(){
+    
+    public ColoresPanel(int tipo){
         setLayout(new FlowLayout(FlowLayout.CENTER));
 
+        if (tipo == 1)
+            borde = 20;
+        else if (tipo == 2)
+            borde = 2;
         
         
-        setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(20,20,20,20),BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(250, 250, 250))));
+        setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(borde,borde,borde,borde),BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(250, 250, 250))));
     }
 
     @Override
@@ -39,8 +45,8 @@ public class ColoresPanel extends JPanel{
     {
         super.paintComponent(g);
         
-        ancho = (this.getBounds().width - 40)/6;
-        altura = (this.getBounds().height - 40);
+        ancho = (this.getBounds().width - borde*2)/6;
+        altura = (this.getBounds().height - borde*2);
         
         Graphics2D g2 = (Graphics2D)g;
         
@@ -49,7 +55,7 @@ public class ColoresPanel extends JPanel{
         for(int i = 0; i < colores.length; i++)
         {
             g2.setColor(colores[i]);
-            g2.fillRect(20+(ancho*i), 20, ancho+2, altura);
+            g2.fillRect(borde+(ancho*i), borde, ancho+2, altura);
             
             System.out.println(ancho*i);
             
@@ -58,7 +64,7 @@ public class ColoresPanel extends JPanel{
             {
                 g.setColor(Color.black);
                 g.setFont(new Font("Dialog", Font.BOLD, 18));
-                g.drawString(numeros[i], (20+(ancho*i)+ancho/2)-5, 50);
+                g.drawString(numeros[i], (borde+(ancho*i)+ancho/2)-5, 50);
             }
         }
         

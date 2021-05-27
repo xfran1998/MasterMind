@@ -14,8 +14,8 @@ import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class Jug2View extends JFrame{
-    //private DerechaPanel derecha;
-    //private IzquierdaPanel izquierda;
+    private DerechaPanel derecha;
+    private IzquierdaPanel izquierda;
 
     public Jug2View(){
         
@@ -45,7 +45,13 @@ public class Jug2View extends JFrame{
         
         //componentes de la vista
         
+        izquierda = new IzquierdaPanel();
+        izquierda.setPreferredSize(new Dimension(550,550));
         
+        add(izquierda, BorderLayout.WEST);
+        
+        derecha = new DerechaPanel();
+        add(derecha, BorderLayout.CENTER);
         
         this.setVisible(true);
         

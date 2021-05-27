@@ -20,14 +20,27 @@ import javax.swing.JPanel;
  */
 public class SeleccionPanel extends JPanel{
     private final int radio = 80;
-    private final int offsetX = 60;
-    private final int offsetY = 15; // Altura centro del circulo
+    private int offsetX = 0;
+    private int offsetY = 0; // Altura centro del circulo
     private final int numColor = 4;
     private int espacio;
+    private int centrar;
     
-    
-    public SeleccionPanel(){
+    public SeleccionPanel(int tipo){
         setLayout(new FlowLayout(FlowLayout.CENTER));
+        
+        if (tipo == 1)
+        {
+            offsetX = 60;
+            offsetY = 15;
+        }
+        else if (tipo == 2)
+        {
+            offsetX = 20;
+            offsetY = 10;
+            
+            setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2,2,2,2), BorderFactory.createMatteBorder(2,2,2,2,Color.WHITE)));
+        }
     }
 
     @Override
@@ -36,6 +49,7 @@ public class SeleccionPanel extends JPanel{
         super.paintComponent(g);
         
         espacio = (this.getBounds().width - (offsetX*2) - radio*4)/3;
+        centrar = (this.getBounds().height/2)-(radio/2); 
         
         Graphics2D g2 = (Graphics2D)g;
         
@@ -45,7 +59,7 @@ public class SeleccionPanel extends JPanel{
                 g2.setColor(Color.red);
             else
                 g2.setColor(Color.WHITE); //Test
-            g2.fillOval(offsetX+(radio*i)+(espacio*i), offsetY, radio, radio);
+            g2.fillOval(offsetX+(radio*i)+(espacio*i), centrar, radio, radio);
         }
         
         if (true)
@@ -58,6 +72,6 @@ public class SeleccionPanel extends JPanel{
         g2.setColor(Color.orange);
         g2.setStroke(new BasicStroke(6));
         //los valores extra son para reposicionar el circulo grande y centrarlo sobre el circulo pequeño
-        g2.drawOval(offsetX-2+radio+espacio, offsetY-2, radio+4, radio+4);
+        g2.drawOval(offsetX-2+radio+espacio, centrar-2, radio+4, radio+4);
     }
 }

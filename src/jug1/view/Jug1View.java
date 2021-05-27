@@ -51,10 +51,10 @@ public class Jug1View extends JFrame{
         
         //componentes de la vista
         
-        colores = new ColoresPanel();
+        colores = new ColoresPanel(1);
         colores.setPreferredSize(new Dimension(0, 160));
         
-        seleccion = new SeleccionPanel();
+        seleccion = new SeleccionPanel(1);
         
         boton = new BotonPanel();
         

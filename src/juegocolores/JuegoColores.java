@@ -1,4 +1,4 @@
-/*
+/*0
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -20,8 +20,10 @@ public class JuegoColores {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //JuegoColoresView view = new JuegoColoresView();
+        //Jug1View view = new Jug1View();
         Jug2View view = new Jug2View();
+        
     }
     
 }

@@ -58,7 +58,12 @@ public class BotonPanel extends JPanel{
         add(centrar);
     }
 
-    void setActionListener(ActionListener al) {
+    public void setActionListener(ActionListener al) {
         boton.addActionListener(al);
+    }
+
+    public void cambiaBoton() {
+        boton.setText("Ver ranking");
+        boton.setActionCommand("ranking");
     }
 }

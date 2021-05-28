@@ -7,6 +7,7 @@ package jug2.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import jug1.view.BotonPanel;
 
@@ -33,5 +34,13 @@ public class DerechaPanel extends JPanel{
         add(audio, BorderLayout.SOUTH);
         add(boton, BorderLayout.CENTER);
         add(avatar, BorderLayout.NORTH);
+    }
+
+    void setActionListener(ActionListener al) {
+        boton.setActionListener(al);
+    }
+
+    void cambiaBoton() {
+        boton.cambiaBoton();
     }
 }

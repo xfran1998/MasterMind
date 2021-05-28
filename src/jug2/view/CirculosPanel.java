@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 public class CirculosPanel extends JPanel{
     private int offsetX = 20;
     private int offsetY = 10;
-    private int radio = 80;
+    private int radio = 70;
     private final int numColor = 4;
     private int espacio;
     private int centrar;

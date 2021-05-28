@@ -6,6 +6,7 @@
 package jug2.view;
 
 import java.awt.GridLayout;
+import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 import juegocolores.model.MastermindModel;
 import jug1.view.SeleccionPanel;
@@ -16,10 +17,10 @@ import jug1.view.SeleccionPanel;
  */
 public class IntentosPanel extends JPanel{
     private SeleccionPanel seleccion;
-    private CirculosPanel[] circulos =  new CirculosPanel[4];
+    private CirculosPanel[] circulos =  new CirculosPanel[5];
     
     public IntentosPanel(MastermindModel model) {
-        setLayout(new GridLayout(5,0));
+        setLayout(new GridLayout(6,0));
         
         for (int i = 0; i < circulos.length; i++)
         {
@@ -31,5 +32,29 @@ public class IntentosPanel extends JPanel{
         add(seleccion);
         
         
+    }
+
+    void setMyMouseListener(MouseListener ml) {
+        seleccion.addMouseListener(ml);
+    }
+
+    int getRadio() {
+        return seleccion.getRadio();
+    }
+
+    void repinta() {
+        seleccion.repaint();
+    }
+
+    int getEspacio() {
+        return seleccion.getEspacio();
+    }
+
+    int getCentrar() {
+        return seleccion.getCentrar();
+    }
+
+    int getOffsetX() {
+        return seleccion.getOffsetX();
     }
 }

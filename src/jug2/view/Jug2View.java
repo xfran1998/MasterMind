@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
@@ -61,6 +62,53 @@ public class Jug2View extends JFrame{
     }
 
     public void setActionListener(ActionListener al) {
-        
+        derecha.setActionListener(al);
+    }
+
+    public void setMyMouseListener(MouseListener ml) {
+        izquierda.setMyMouseListener(ml);
+    }
+    
+    public int getAncho()
+    {
+        return izquierda.getAncho();
+    }
+    
+    public int getBorde()
+    {
+        return izquierda.getBorde();
+    }
+    
+    public int getAltura()
+    {
+        return izquierda.getAltura();
+    }
+
+    public void repinta() {
+        izquierda.repinta();
+    }
+    
+    public int getRadio()
+    {
+        return izquierda.getRadio();
+    }
+    
+    public int getEspacio()
+    {
+        return izquierda.getEspacio();
+    }
+    
+    public int getCentrar()
+    {
+        return izquierda.getCentrar();
+    }
+    
+    public int getOffsetX()
+    {
+        return izquierda.getOffsetX();
+    }
+
+    public void cambiaBoton() {
+        derecha.cambiaBoton(); 
     }
 }

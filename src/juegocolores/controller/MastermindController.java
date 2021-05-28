@@ -39,20 +39,20 @@ public class MastermindController {
                 case "siguiente":
                     model.setNombre(view.getNombre());
                 
-                    //hay que comprobar que el nombre no esta vacio
-                    if (model.getModo() == 2)
-                    {
-                        view.setVisible(false);
-                        Jug1View viewJug1 = new Jug1View(model);
-                        Jug1Controller controllerJug1 = new Jug1Controller(viewJug1, model);
-                    }
-                    else
-                    {
-                        model.randomizeSelections();
-                        view.setVisible(false);
-                        Jug2View viewJug2 = new Jug2View(model);
-                        Jug2Controller controllerJug1 = new Jug2Controller(viewJug2, model);
-                    }
+                    if (model.comprobarNombre())
+                        if (model.getModo() == 2)
+                        {
+                            view.setVisible(false);
+                            Jug1View viewJug1 = new Jug1View(model);
+                            Jug1Controller controllerJug1 = new Jug1Controller(viewJug1, model);
+                        }
+                        else
+                        {
+                            model.randomizeSelections();
+                            view.setVisible(false);
+                            Jug2View viewJug2 = new Jug2View(model);
+                            Jug2Controller controllerJug1 = new Jug2Controller(viewJug2, model);
+                        }
                     break;
                 
                 case "cambioModo":

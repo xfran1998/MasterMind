@@ -9,6 +9,7 @@ import informacion.view.InformacionView;
 import ini.view.JuegoColoresView;
 import juegocolores.controller.MastermindController;
 import juegocolores.model.MastermindModel;
+import juegocolores.model.Ranking;
 import jug1.view.Jug1View;
 import jug2.view.Jug2View;
 import ranking.view.RankingView;

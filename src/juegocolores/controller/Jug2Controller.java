@@ -8,8 +8,9 @@ package juegocolores.controller;
 import ini.view.JuegoColoresView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import juegocolores.model.MastermindModel;
-import jug1.view.Jug1View;
 import jug2.view.Jug2View;
 
 /**
@@ -25,6 +26,7 @@ public class Jug2Controller {
         this.view = view;
         
         view.setActionListener(new MyActionListener());
+        view.setMyMouseListener(new Jug2Controller.MyMouseListener());
     }
     
     //clases empotradas
@@ -33,6 +35,61 @@ public class Jug2Controller {
         public void actionPerformed(ActionEvent ae) {
             String comando = ae.getActionCommand();
             
+            if (comando == "siguiente")
+            {
+                model.aumentaTurno();
+                
+                if (model.getTurno() == 5)
+                    view.cambiaBoton();
+            }
+        }
+    }
+    
+    class MyMouseListener implements MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent me)
+        {
+            int boton = me.getButton();
+            
+            if(boton == 1)
+            {
+                System.out.println(me.getX() + " " + me.getY());
+                
+                if (me.getSource().getClass().toString().contains("ColoresPanel"))
+                    for (int i = 0; i < model.getLargoColores(); i++)
+                        if (me.getX() > view.getBorde()+(view.getAncho()*i) && me.getX() <= view.getBorde()+(view.getAncho()*(i+1)) && me.getY() > view.getBorde() && me.getY() <= view.getAltura())
+                        {
+                            model.addColor2(model.getColor(i));
+                            model.siguienteCirc2();
+                            view.repinta();
+                        }
+                if (me.getSource().getClass().toString().contains("SeleccionPanel"))
+                    for (int j = 0; j < 4; j++)
+                        if (me.getX() >= (view.getOffsetX()+(view.getRadio()+view.getEspacio())*j) && me.getX() <= (view.getOffsetX()+(view.getRadio()*(j+1))+(view.getEspacio())*j))
+                        {
+                            System.out.println("pene: " + (j+1));
+                            model.setSeleccionado2(j+1);
+                            view.repinta();
+                        }
+                
+                //hay que hacer la seleccion del circulo a pintar
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
         }
     }
 }

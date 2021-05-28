@@ -15,11 +15,17 @@ import juegocolores.model.MastermindModel;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 class RankingPanel extends JPanel{
     private MastermindModel model;
     private JLabel[] rankingText = new JLabel[10];
     
+    /**
+     * 
+     * Constructor
+     * 
+     */
     public RankingPanel(MastermindModel model){
         this.model = model;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

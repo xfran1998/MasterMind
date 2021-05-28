@@ -18,7 +18,9 @@ import ranking.view.RankingView;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 public class RankingController {
     private RankingView view;

@@ -77,50 +77,100 @@ public class Jug1View extends JFrame{
         
     }
 
+    /**
+     * 
+     * setActionLsitener
+     * 
+     */
     public void setActionListener(ActionListener al) {
         boton.setActionListener(al);
         menu.setActionListener(al);
     }
 
+    /**
+     * 
+     * setter MouseListener
+     * 
+     */
     public void setMyMouseListener(MouseListener ml) {
         colores.addMouseListener(ml);
         seleccion.addMouseListener(ml);
     }
     
+    /**
+     * 
+     * getter ancho
+     * 
+     */
     public int getAncho()
     {
         return colores.getAncho();
     }
     
+    /**
+     * 
+     * getter borde
+     * 
+     */
     public int getBorde()
     {
         return colores.getBorde();
     }
     
+    /**
+     * 
+     * getter altura
+     * 
+     */
     public int getAltura()
     {
         return colores.getAltura();
     }
 
+    /**
+     * 
+     *  repinta
+     * 
+     */
     public void repinta() {
         seleccion.repaint();
     }
     
+    /**
+     * 
+     * getter radio
+     * 
+     */
     public int getRadio()
     {
         return seleccion.getRadio();
     }
     
+    /**
+     * 
+     * getter espacio
+     * 
+     */
     public int getEspacio()
     {
         return seleccion.getEspacio();
     }
     
+    /**
+     * 
+     * getter centrar
+     * 
+     */
     public int getCentrar()
     {
         return seleccion.getCentrar();
     }
     
+    /**
+     * 
+     * getter ofssetX
+     * 
+     */
     public int getOffsetX()
     {
         return seleccion.getOffsetX();

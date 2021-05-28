@@ -20,7 +20,9 @@ import javax.sound.sampled.*;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 public class MastermindModel {
     private String nombre = "";
@@ -62,13 +64,28 @@ public class MastermindModel {
     
     boolean fin = false;
     
+    /**
+     * 
+     * constructor
+     * 
+     */
     public MastermindModel(){
     }
     
+    /**
+     * 
+     * setter del nombre del jugador
+     * 
+     */
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
     
+    /**
+     * 
+     * cambio de modalidad de un jugador a dos jugadores y viceversa
+     * 
+     */
     public void changeModo()
     {
         if (modo == 2)
@@ -77,48 +94,98 @@ public class MastermindModel {
             modo = 2;
     }
     
+    /**
+     * 
+     * getter del modo de juego
+     * 
+     */
     public int getModo()
     {
         return modo;
     }
     
+    /**
+     * 
+     * cambio a modo daltonicos y de este
+     * 
+     */
     public void changeDaltonicos()
     {
         daltonicos = !daltonicos;
     }
     
+    /**
+     * 
+     * getter del modo daltonicos
+     * 
+     */
     public Boolean getDaltonicos()
     {
         return daltonicos;
     }
     
+    /**
+     * 
+     * setter del circulo de seleccion del player 1
+     * 
+     */
     public void setSeleccionado(int i){
         seleccionado = i;
     }
 
+    /**
+     * 
+     * setter del circulo de seleccion del player2
+     * 
+     */
     public void setSeleccionado2(int i) {
         seleccionado2 = i;
     }
     
+    /**
+     * 
+     * getter del circulo de seleccion
+     * 
+     */
     public int getSeleccionado(){
         return seleccionado;
     }
     
+    /**
+     * 
+     * getter del circulo de seleccion del player 2
+     * 
+     */
     public int getSeleccionado2() {
         return seleccionado2;
     }
     
+    /**
+     * 
+     * añade color al array del jugador 1
+     * 
+     */
     public void addColor(Color color)
     {
         comprobarColor(color);
         elegidos[seleccionado-1] = color;
     }
     
+    /**
+     * 
+     * añade color al array del jugador 2
+     * 
+     */
     public void addColor2(Color color) {
         comprobarColor2(color);
         elegidos2[seleccionado2-1] = color;
     }
     
+    /**
+     * 
+     * comprobacion del color seleccionado para ver si esta repetido
+     * 
+     */
     public void comprobarColor(Color color)
     {
         for (int i = 0; i < elegidos.length; i++)
@@ -126,6 +193,11 @@ public class MastermindModel {
                 elegidos[i] = Color.white;
     }
     
+    /**
+     * 
+     * comprobacion del color seleccionado para ver si esta repetido del jugador 2
+     * 
+     */
     public void comprobarColor2(Color color)
     {
         for (int i = 0; i < elegidos.length; i++)
@@ -458,7 +530,7 @@ public class MastermindModel {
         
         for(int j = 0; j < intento1.length; j++)
         {
-            if (intento1[j] == colores[i] && aciertos1[i] == 2)
+            if (intento1[j] == colores[i] && aciertos1[j] == 2)
                 acertado = true;
         }
         
@@ -547,17 +619,20 @@ public class MastermindModel {
     }
     
     public String getInstr(){
-        String path = System.getProperty("user.dir")+"/textos/autores.txt";
+        String path = System.getProperty("user.dir")+"/textos/instrucciones.txt";
         String name = "";
         
         try {
             Scanner myReader = new Scanner(new File(path));
             
+            name += "<html>";
             
             while (myReader.hasNextLine()) {
-                name = myReader.nextLine();
+                name += myReader.nextLine() + "<br/>";
             }
             myReader.close();
+            
+            name += "</html>";
             
         } catch (FileNotFoundException e) {
             System.out.println("no ha funcionado");

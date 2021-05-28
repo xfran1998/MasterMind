@@ -15,12 +15,18 @@ import juegocolores.model.MastermindModel;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 class ResultadoPanel extends JPanel{
     private JLabel nombre;
     private JLabel resultado;
     private JLabel puntuacion;
     
+    /**
+     * 
+     * Constructor
+     * 
+     */
     public ResultadoPanel(boolean tipo, MastermindModel model){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         

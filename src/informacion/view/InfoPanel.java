@@ -9,14 +9,18 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import juegocolores.model.MastermindModel;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 class InfoPanel extends JPanel{
     private JLabel info;
+    
     
     public InfoPanel(MastermindModel model, int tipo){
         if(tipo == 2)
@@ -30,7 +34,11 @@ class InfoPanel extends JPanel{
         
         if(tipo == 1)
         {
+            info = new JLabel(model.getInstr());
+            info.setAlignmentY(CENTER_ALIGNMENT);
+            info.setForeground(Color.white);
             
+            add(info);
         }
         
         setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2,2,2,2), BorderFactory.createMatteBorder(2, 2, 2, 2, Color.white)));

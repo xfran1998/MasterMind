@@ -19,7 +19,9 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 class AvatarPanel extends JPanel implements Runnable{
     private BufferedImage idle;
@@ -34,6 +36,11 @@ class AvatarPanel extends JPanel implements Runnable{
     private Boolean runAnim = false;
 
 
+    /**
+     * 
+     * constructor
+     * 
+     */
     public AvatarPanel() {
         try {
             
@@ -75,6 +82,11 @@ class AvatarPanel extends JPanel implements Runnable{
         setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(3,2,2,2), BorderFactory.createMatteBorder(2,2,2,2,Color.WHITE)));
     }
 
+    /**
+     * 
+     * override paitnComponent
+     * 
+     */
     @Override
     public void paintComponent (Graphics g)
     {
@@ -113,6 +125,11 @@ class AvatarPanel extends JPanel implements Runnable{
         }
     }
     
+    /**
+     * 
+     * override run Threading
+     * 
+     */
     @Override
     public void run() {
         runAnim = true;
@@ -132,6 +149,11 @@ class AvatarPanel extends JPanel implements Runnable{
         }
     }
     
+    /**
+     * 
+     * setter animacion
+     * 
+     */
     public void setAnim(int anim){
         if (anim <= maxAnim)
         {
@@ -141,6 +163,11 @@ class AvatarPanel extends JPanel implements Runnable{
         System.out.println("anim: " + anim);
     }
     
+    /**
+     * 
+     * para animacion
+     * 
+     */
     public void stopAnim(){
         this.runAnim = false;
     }

@@ -19,7 +19,9 @@ import ranking.view.RankingView;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 public class Jug1Controller {
     private MastermindModel model;

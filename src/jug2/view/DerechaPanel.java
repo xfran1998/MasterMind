@@ -15,13 +15,20 @@ import jug1.view.BotonPanel;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 public class DerechaPanel extends JPanel{
     private AudioPanel audio;
     private BotonPanel boton;
     private AvatarPanel avatar;
     
+    /**
+     * 
+     * getter constructor
+     * 
+     */
     public DerechaPanel(){
         setLayout(new BorderLayout());
         
@@ -38,35 +45,75 @@ public class DerechaPanel extends JPanel{
         add(avatar, BorderLayout.NORTH);
     }
 
+    /**
+     * 
+     * setter ActionListener
+     * 
+     */
     void setActionListener(ActionListener al) {
         boton.setActionListener(al);
     }
 
+    /**
+     * 
+     * cambia boton
+     * 
+     */
     void cambiaBoton() {
         boton.cambiaBoton();
     }
     
+    /**
+     * 
+     * setter anim
+     * 
+     */
     public void setAnim(int anim){
         avatar.setAnim(anim);
     }
     
+    /**
+     * 
+     * empieza animacion
+     * 
+     */
     public void startAnim(){
         Thread avatarMovement = new Thread(avatar);
         avatarMovement.start();
     }
     
+    /**
+     * 
+     * para animacion
+     * 
+     */
     public void stopAnim(){
         avatar.stopAnim();
     }
 
+    /**
+     * 
+     * repinta volumen
+     * 
+     */
     public void repintaVolumen() {
         audio.repaint();
     }
 
+    /**
+     * 
+     * getter volumen
+     * 
+     */
     public int getVolumen() {
         return audio.getVolumen();
     }
 
+    /**
+     * 
+     * getter volumen
+     * 
+     */
     void setMySliderListener(ChangeListener cl) {
         audio.setMySliderListener(cl);
     }

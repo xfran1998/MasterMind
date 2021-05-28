@@ -16,7 +16,9 @@ import juegocolores.model.MastermindModel;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 public class CirculosPanel extends JPanel{
     private int offsetX = 20;
@@ -28,12 +30,22 @@ public class CirculosPanel extends JPanel{
     private MastermindModel model;
     private int tipo;
     
+    /**
+     * 
+     * constructor
+     * 
+     */
     public CirculosPanel(int tipo, MastermindModel model){
         this.model = model;
         this.tipo = tipo;
         setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2,2,2,2), BorderFactory.createMatteBorder(2,2,2,2,Color.WHITE)));
     }
     
+    /**
+     * 
+     * override paintComponent
+     * 
+     */
     @Override
     public void paintComponent (Graphics g)
     {

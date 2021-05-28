@@ -1,5 +1,12 @@
 package juegocolores.model;
 
+/**
+ *
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
+ */
+
 public class UserRanking {
     private String name;
     private int score;

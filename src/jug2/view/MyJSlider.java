@@ -39,6 +39,11 @@ class MyJSlider extends BasicSliderUI {
         
     }
 
+    /**
+     * 
+     * Setea track
+     * 
+     */
     @Override
     protected void calculateTrackRect() {
         super.calculateTrackRect();
@@ -52,6 +57,11 @@ class MyJSlider extends BasicSliderUI {
         trackShape.setRoundRect(trackRect.x, trackRect.y, trackRect.width, trackRect.height, TRACK_ARC, TRACK_ARC);
     }
 
+     /**
+     * 
+     * Calcula la posicion
+     * 
+     */
     @Override
     protected void calculateThumbLocation() {
         super.calculateThumbLocation();
@@ -62,21 +72,42 @@ class MyJSlider extends BasicSliderUI {
         }
     }
 
+    /**
+     * 
+     * DEvuelve el tamaño
+     * 
+     */
     @Override
     protected Dimension getThumbSize() {
         return THUMB_SIZE;
     }
 
+    /**
+     * 
+     * Devuelve si es horizontal
+     * 
+     */
     private boolean isHorizontal() {
         return slider.getOrientation() == JSlider.HORIZONTAL;
     }
 
+    /**
+     * 
+     * Override de paint
+     * 
+     */
     @Override
     public void paint(final Graphics g, final JComponent c) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         super.paint(g, c);
     }
 
+
+    /**
+     * 
+     * Override de paintTrack
+     * 
+     */
     @Override
     public void paintTrack(final Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
@@ -124,18 +155,33 @@ class MyJSlider extends BasicSliderUI {
         count = 0;
     }
 
+    /**
+     * 
+     * Override de paintThumb
+     * 
+     */
     @Override
     public void paintThumb(final Graphics g) {
         g.setColor(new Color(235, 235, 235));
         g.fillOval(thumbRect.x, thumbRect.y, thumbRect.width, thumbRect.height);
     }
     
+    /**
+     * 
+     * Override de paintLabels
+     * 
+     */
     @Override
     public void paintLabels(final Graphics g) {
         g.setColor(Color.red);
         
     }
     
+    /**
+     * 
+     * Override de paintMajorTickForHorizSlider
+     * 
+     */
     @Override
     public void paintMajorTickForHorizSlider(final Graphics g, Rectangle tickBounds, int x) {
         g.setColor(Color.white);
@@ -154,6 +200,11 @@ class MyJSlider extends BasicSliderUI {
         System.out.println("el slider: " + count);
     }
 
+    /**
+     * 
+     * Override de paintFocus
+     * 
+     */
     @Override
     public void paintFocus(final Graphics g) {}
 }

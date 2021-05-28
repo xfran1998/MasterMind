@@ -8,6 +8,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner; // Import the Scanner class to read text files
 
+/**
+ *
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
+ */
+
 public class Ranking {
     private ArrayList<UserRanking> myRanking = new ArrayList<>();
     private final int maxPoints;

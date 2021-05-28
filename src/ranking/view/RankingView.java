@@ -22,6 +22,7 @@ import jug1.view.BotonPanel;
 /**
  *
  * @author oscar
+ * @author francisco
  */
 public class RankingView extends JFrame{
     private BotonPanel boton1, boton2;
@@ -30,6 +31,11 @@ public class RankingView extends JFrame{
     private JPanel panel;
     private int tipo;
 
+    /**
+     * 
+     * Constructor
+     * 
+     */
     public RankingView(int tipo, MastermindModel model){
         //estilo de la ventana
         setLayout(new BorderLayout());
@@ -84,10 +90,20 @@ public class RankingView extends JFrame{
         this.setVisible(true);
     }
 
+    /**
+     * 
+     * Devuelve el tipo
+     * 
+     */
     public int getTipo() {
         return tipo;
     }
 
+    /**
+     * 
+     * setea el ActionListener
+     * 
+     */
     public void setActionListener(ActionListener al) {
         boton1.setActionListener(al);
         boton2.setActionListener(al);

@@ -21,12 +21,19 @@ import juegocolores.model.MastermindModel;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 class AudioPanel extends JPanel{
     private JSlider slider;
     private Polygon altavoz;
     
+    /**
+     * 
+     *constructor
+     * 
+     */
     public AudioPanel(){
         setLayout(new BorderLayout());
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -56,6 +63,11 @@ class AudioPanel extends JPanel{
         setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2,2,2,2), BorderFactory.createMatteBorder(2,2,2,2,Color.WHITE)));
     }
     
+    /**
+     * 
+     * override paintComponent
+     * 
+     */
     @Override
     public void paintComponent (Graphics g)
     {
@@ -88,10 +100,20 @@ class AudioPanel extends JPanel{
         g2.setColor(Color.white);
     }
     
+    /**
+     * 
+     * getter volumen
+     * 
+     */
     public int getVolumen(){
         return slider.getValue();
     }
 
+    /**
+     * 
+     * setter SliderListener
+     * 
+     */
     void setMySliderListener(ChangeListener cl) {
         slider.addChangeListener(cl);
     }

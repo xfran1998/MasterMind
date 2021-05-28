@@ -19,11 +19,23 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 import juegocolores.controller.Jug2Controller;
 import juegocolores.model.MastermindModel;
 
+
+/**
+ *
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
+ */
 public class Jug2View extends JFrame{
     private DerechaPanel derecha;
     private IzquierdaPanel izquierda;
     private MastermindMenuBar menu;
 
+    /**
+     * 
+     * constructor
+     * 
+     */
     public Jug2View(MastermindModel model){
         
         //estilo de la ventana
@@ -68,74 +80,155 @@ public class Jug2View extends JFrame{
         
     }
 
+    /**
+     * 
+     * setter ActionListener
+     * 
+     */
     public void setActionListener(ActionListener al) {
         derecha.setActionListener(al);
         menu.setActionListener(al);
     }
 
+    /**
+     * 
+     * setter MouseListener
+     * 
+     */
     public void setMyMouseListener(MouseListener ml) {
         izquierda.setMyMouseListener(ml);
     }
     
+    /**
+     * 
+     * getter ancho
+     * 
+     */
     public int getAncho()
     {
         return izquierda.getAncho();
     }
     
+    /**
+     * 
+     * getter borde
+     * 
+     */
     public int getBorde()
     {
         return izquierda.getBorde();
     }
     
+    /**
+     * 
+     * getter altura
+     * 
+     */
     public int getAltura()
     {
         return izquierda.getAltura();
     }
 
+    /**
+     * 
+     * repinta izquierda panel
+     * 
+     */
     public void repinta() {
         izquierda.repinta();
     }
     
+    /**
+     * 
+     * getter radio
+     * 
+     */
     public int getRadio()
     {
         return izquierda.getRadio();
     }
     
+    /**
+     * 
+     * getter espacio
+     * 
+     */
     public int getEspacio()
     {
         return izquierda.getEspacio();
     }
     
+    /**
+     * 
+     * getter centrar
+     * 
+     */
     public int getCentrar()
     {
         return izquierda.getCentrar();
     }
+
+    /**
+     * 
+     * getter OffsetX
+     * 
+     */
     
     public int getOffsetX()
     {
         return izquierda.getOffsetX();
     }
 
+    /**
+     * 
+     * cambia el boton
+     * 
+     */
     public void cambiaBoton() {
         derecha.cambiaBoton(); 
     }
     
+    /**
+     * 
+     * getter volumen
+     * 
+     */
     public void setAnim(int anim){
         derecha.setAnim(anim);
     }
     
+    /**
+     * 
+     * para la animacion personaje
+     * 
+     */
     public void stopAnim(){
         derecha.stopAnim();
     }
 
+    /**
+     * 
+     * repinta icono volumen
+     * 
+     */
     public void repintaVolumen() {
         derecha.repaint();
     }
 
+    /**
+     * 
+     * getter volumen
+     * 
+     */
     public int getVolumen() {
         return derecha.getVolumen();
     }
 
+    /**
+     * 
+     * setea SliderListener
+     * 
+     */
     public void setMySliderListener(ChangeListener cl) {
         derecha.setMySliderListener(cl);
     }

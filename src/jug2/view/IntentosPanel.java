@@ -13,12 +13,19 @@ import jug1.view.SeleccionPanel;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 public class IntentosPanel extends JPanel{
     private SeleccionPanel seleccion;
     private CirculosPanel[] circulos =  new CirculosPanel[5];
     
+    /**
+     * 
+     * constructor
+     * 
+     */
     public IntentosPanel(MastermindModel model) {
         setLayout(new GridLayout(6,0));
         
@@ -34,14 +41,29 @@ public class IntentosPanel extends JPanel{
         
     }
 
+    /**
+     * 
+     * setter mouseLister
+     * 
+     */
     void setMyMouseListener(MouseListener ml) {
         seleccion.addMouseListener(ml);
     }
 
+    /**
+     * 
+     * getter radio
+     * 
+     */
     int getRadio() {
         return seleccion.getRadio();
     }
 
+    /**
+     * 
+     * repinta seleccion panel
+     * 
+     */
     void repinta() {
         seleccion.repaint();
         for (int i = 0; i < 5; i++) {
@@ -49,14 +71,29 @@ public class IntentosPanel extends JPanel{
         }
     }
 
+    /**
+     * 
+     * getter espacio
+     * 
+     */
     int getEspacio() {
         return seleccion.getEspacio();
     }
 
+    /**
+     * 
+     * getter centrar
+     * 
+     */
     int getCentrar() {
         return seleccion.getCentrar();
     }
 
+    /**
+     * 
+     * getter offsetX
+     * 
+     */
     int getOffsetX() {
         return seleccion.getOffsetX();
     }

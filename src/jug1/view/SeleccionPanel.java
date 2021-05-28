@@ -29,6 +29,11 @@ public class SeleccionPanel extends JPanel{
     private MastermindModel model;
     private int tipo;
     
+    /**
+     * 
+     * constructor
+     * 
+     */
     public SeleccionPanel(int tipo, MastermindModel model){
         setLayout(new FlowLayout(FlowLayout.CENTER));
         
@@ -51,6 +56,11 @@ public class SeleccionPanel extends JPanel{
         }
     }
 
+    /**
+     * 
+     * paintComponent
+     * 
+     */
     @Override
     public void paintComponent (Graphics g)
     {
@@ -95,21 +105,41 @@ public class SeleccionPanel extends JPanel{
         
     }
     
+    /**
+     * 
+     * getter radio
+     * 
+     */
     public int getRadio()
     {
         return radio;
     }
     
+    /**
+     * 
+     * getter espacio
+     * 
+     */
     public int getEspacio()
     {
         return espacio;
     }
     
+    /**
+     * 
+     * getter centrar
+     * 
+     */
     public int getCentrar()
     {
         return centrar;
     }
     
+    /**
+     * 
+     * getter offsetX
+     * 
+     */
     public int getOffsetX()
     {
         return offsetX;

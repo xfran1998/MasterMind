@@ -11,6 +11,7 @@ import ini.view.MyDefaultMetalTheme3;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.metal.MetalLookAndFeel;
@@ -20,7 +21,9 @@ import jug1.view.BotonPanel;
 
 /**
  *
- * @author oscar
+ * @author Oscar Marín Egea
+ * @author Francisco Sevillano Asensi
+ * 
  */
 public class InformacionView extends JFrame{
     BotonPanel boton;
@@ -68,9 +71,11 @@ public class InformacionView extends JFrame{
         //componentes de la vista
         informacion = new InfoPanel(model, tipo);
         
+        JScrollPane scroller = new JScrollPane(informacion, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        
         boton = new BotonPanel(3);
         
-        add(informacion, BorderLayout.CENTER);
+        add(scroller, BorderLayout.CENTER);
         add(boton, BorderLayout.SOUTH);
         
         this.setVisible(true);

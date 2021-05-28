@@ -11,14 +11,18 @@ import java.util.Scanner; // Import the Scanner class to read text files
 public class Ranking {
     private ArrayList<UserRanking> myRanking = new ArrayList<>();
     private final int maxPoints;
-    String path;
+    private final int maxRanking;
+    private String path;
     
-    public Ranking(int maxPoints){
+    public Ranking(int maxPoints, int maxRanking){
        this.maxPoints = maxPoints;
+       this.maxRanking = maxRanking;
        path = System.getProperty("user.dir")+"/textos/ranking.txt";
     }
 
     public void LeerRanking(){
+        myRanking.clear();
+        
         try {
             Scanner myReader = new Scanner(new File(path));
 
@@ -35,8 +39,17 @@ public class Ranking {
         }
     }
 
-    public ArrayList<UserRanking> getRanking(){
-        return myRanking;
+    public String[] getRanking(){
+        String[] rank = {"", "", "", "", "", "", "", "", "", ""};
+        
+        for (int i=0; i < myRanking.size() && i < maxRanking; i++)
+        {
+            UserRanking myUser = myRanking.get(i);
+            rank[i] = myUser.getName() + " - " + myUser.getScore() + " INTENTOS - TOP" + (i+1);
+        }
+        
+        
+        return rank;
     }
     
     public void addRanking(UserRanking newUser){

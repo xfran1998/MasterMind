@@ -18,7 +18,7 @@ import javax.swing.JMenuItem;
  */
 public class MastermindMenuBar extends JMenuBar{
     private JMenu juego, ayuda;
-    private JMenuItem nuevo, opciones, ranking, salir, instrucciones, info;
+    private JMenuItem nuevo, ranking, salir, instrucciones, info;
     
     /**
     * Constructor del menu del editor
@@ -29,9 +29,6 @@ public class MastermindMenuBar extends JMenuBar{
         
         nuevo = new JMenuItem("Nuevo Juego");
         nuevo.setActionCommand("reiniciar");
-        
-        opciones = new JMenuItem("Opciones");
-        opciones.setActionCommand("opciones");
         
         ranking = new JMenuItem("Ranking");
         ranking.setActionCommand("ranking");
@@ -46,7 +43,6 @@ public class MastermindMenuBar extends JMenuBar{
         info.setActionCommand("info");
         
         juego.add(nuevo);
-        juego.add(opciones);
         juego.add(ranking);
         juego.add(salir);
         add(juego);
@@ -61,7 +57,6 @@ public class MastermindMenuBar extends JMenuBar{
     * @param actionListener Listener
     */
     public void setActionListener(ActionListener actionListener) {
-        opciones.addActionListener(actionListener);
         nuevo.addActionListener(actionListener);
         ranking.addActionListener(actionListener);
         salir.addActionListener(actionListener);

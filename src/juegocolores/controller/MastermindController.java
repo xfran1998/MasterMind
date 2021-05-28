@@ -74,12 +74,9 @@ public class MastermindController {
                 case "reiniciar":
                     model.reiniciar();
                     break;
-                    
-                case "opciones":
-                    new InformacionView(3);
-                    break;
                 
                 case "ranking":
+                    model.loadRanking();
                     RankingView vistaRanking = new RankingView(1, model);
                     new RankingController(vistaRanking, model);
                     break;
@@ -89,11 +86,13 @@ public class MastermindController {
                     break;
                     
                 case "instruc":
-                    new InformacionView(1);
+                    InformacionView infovista = new InformacionView(1, model);
+                    new InfoController(infovista, model);
                     break;
                     
                 case "info":
-                    new InformacionView(2);
+                    InformacionView instrvista = new InformacionView(2, model);
+                    new InfoController(instrvista, model);
                     break;
             }
         }

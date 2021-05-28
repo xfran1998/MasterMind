@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import juegocolores.model.MastermindModel;
 
 /**
  *
@@ -20,13 +21,13 @@ class ResultadoPanel extends JPanel{
     private JLabel resultado;
     private JLabel puntuacion;
     
-    public ResultadoPanel(int tipo){
+    public ResultadoPanel(boolean tipo, MastermindModel model){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
-        if (tipo == 1)
+        if (tipo)
         {
             resultado = new JLabel("¡¡¡ENHORABUENA!!!");
-            puntuacion = new JLabel("en 1 intento estas en la posicion: 1");
+            puntuacion = new JLabel("en " + model.getTurno() + " intentos");
         }
         else
         {
@@ -38,7 +39,7 @@ class ResultadoPanel extends JPanel{
         resultado.setForeground(Color.white);
         resultado.setAlignmentX(CENTER_ALIGNMENT);
         
-        nombre = new JLabel("francisco sevillano");
+        nombre = new JLabel(model.getNombre());
         nombre.setFont(new Font("Monoespaced", Font.PLAIN, 20));
         nombre.setForeground(Color.white);
         nombre.setAlignmentX(CENTER_ALIGNMENT);

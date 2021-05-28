@@ -9,10 +9,13 @@ import ini.view.MyDefaultMetalTheme;
 import ini.view.MyDefaultMetalTheme2;
 import ini.view.MyDefaultMetalTheme3;
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.metal.MetalLookAndFeel;
+import juegocolores.controller.InfoController;
+import juegocolores.model.MastermindModel;
 import jug1.view.BotonPanel;
 
 /**
@@ -23,7 +26,7 @@ public class InformacionView extends JFrame{
     BotonPanel boton;
     InfoPanel informacion;
     
-    public InformacionView(int tipo) {
+    public InformacionView(int tipo, MastermindModel model) {
         //estilo de la ventana
         setLayout(new BorderLayout());
         //hacer que al cerrar desde la x se cierre el programa
@@ -63,7 +66,7 @@ public class InformacionView extends JFrame{
         SwingUtilities.updateComponentTreeUI(this);
         
         //componentes de la vista
-        informacion = new InfoPanel();
+        informacion = new InfoPanel(model, tipo);
         
         boton = new BotonPanel(3);
         
@@ -71,6 +74,10 @@ public class InformacionView extends JFrame{
         add(boton, BorderLayout.SOUTH);
         
         this.setVisible(true);
+    }
+
+    public void setActionListener(ActionListener al) {
+        boton.setActionListener(al);
     }
     
 }

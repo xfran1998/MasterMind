@@ -31,7 +31,7 @@ class AudioPanel extends JPanel{
         setLayout(new BorderLayout());
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         
-        slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 10) {
+        slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50) {
             @Override
             public void updateUI() {
                 setUI(new MyJSlider(this));

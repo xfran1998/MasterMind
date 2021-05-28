@@ -42,15 +42,13 @@ public class Jug2Controller {
             
             switch (comando) {
                 case "reiniciar":
+                    model.stopMusic();
                     model.setVista3(view);
                     model.reiniciar();
                     break;
-                    
-                case "opciones":
-                    new InformacionView(3);
-                    break;
                 
                 case "ranking":
+                    model.loadRanking();
                     RankingView vistaRanking = new RankingView(1, model);
                     new RankingController(vistaRanking, model);
                     break;
@@ -60,11 +58,13 @@ public class Jug2Controller {
                     break;
                     
                 case "instruc":
-                    new InformacionView(1);
+                    InformacionView infovista = new InformacionView(1, model);
+                    new InfoController(infovista, model);
                     break;
                     
                 case "info":
-                    new InformacionView(2);
+                    InformacionView instrvista = new InformacionView(2, model);
+                    new InfoController(instrvista, model);
                     break;
             }
             
@@ -99,6 +99,10 @@ public class Jug2Controller {
             
             if (comando == "rank")
             {
+                model.loadRanking();
+                model.addPlayer();
+                model.saveRanking();
+                
                 view.stopAnim();
                 model.setVista3(view);
                 

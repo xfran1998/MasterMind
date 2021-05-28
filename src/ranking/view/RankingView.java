@@ -65,7 +65,7 @@ public class RankingView extends JFrame{
         this.tipo = tipo;
         ranking = new RankingPanel(model);
         
-        resultado = new ResultadoPanel(2);
+        resultado = new ResultadoPanel(model.comprobarVictoria(), model);
         
         panel = new JPanel(new GridLayout(0,tipo));
         

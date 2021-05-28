@@ -47,6 +47,7 @@ public class RankingController {
                     break;
                     
                 case "reinicio":
+                    model.stopMusic();
                     view.dispose();
                     model.reiniciar();
                     break;

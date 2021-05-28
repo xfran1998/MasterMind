@@ -57,12 +57,9 @@ public class Jug1Controller {
                     model.setVista2(view);
                     model.reiniciar();
                     break;
-                    
-                case "opciones":
-                    new InformacionView(3);
-                    break;
                 
                 case "ranking":
+                    model.loadRanking();
                     RankingView vistaRanking = new RankingView(1, model);
                     new RankingController(vistaRanking, model);
                     break;
@@ -72,11 +69,13 @@ public class Jug1Controller {
                     break;
                     
                 case "instruc":
-                    new InformacionView(1);
+                    InformacionView infovista = new InformacionView(1, model);
+                    new InfoController(infovista, model);
                     break;
                     
                 case "info":
-                    new InformacionView(2);
+                    InformacionView instrvista = new InformacionView(2, model);
+                    new InfoController(instrvista, model);
                     break;
             }
         }

@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import juegocolores.model.MastermindModel;
 
 /**
  *
@@ -17,7 +18,21 @@ import javax.swing.JPanel;
 class InfoPanel extends JPanel{
     private JLabel info;
     
-    public InfoPanel(){
+    public InfoPanel(MastermindModel model, int tipo){
+        if(tipo == 2)
+        {
+            info = new JLabel(model.getAutores());
+            info.setAlignmentY(CENTER_ALIGNMENT);
+            info.setForeground(Color.white);
+
+            add(info);
+        }
+        
+        if(tipo == 1)
+        {
+            
+        }
+        
         setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2,2,2,2), BorderFactory.createMatteBorder(2, 2, 2, 2, Color.white)));
     }
 }

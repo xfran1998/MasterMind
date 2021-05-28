@@ -1,0 +1,47 @@
+Intrucciones MASTERMIND:
+
+-------------------------------------------------------------------------
+
+FASE 1 - SELECCION DE COLORES - JUGADOR 1
+
+- El Jugador 1 tendrá que elegir la combinación de colores que
+desea jugar, esta combinación quedará oculta para el Jugador 2
+
+- El jugador 1 deberá de seleccionar 4 colores DISTINTOS a partir
+de una selección de 8 colores, en caso de que seleccione un color
+existente, el antiguo sera borrado.
+
+Nota extra:
+
+- Para elegir los colores el Jugador 1 deberá clickar sobre el 
+color que desea cambair el color o por defecto se le asiganara 
+uno marcado con una circumferencia naranja que rodeará el circulo
+a cambiar.
+
+- Una vez seleccionado el color el marcador saltará automáticamente
+al siguiente circulo a cambiar.
+
+- Solo se podrá continuar a la siguiente ronda una vez se hayan
+seleccionado los 4 colores
+
+-------------------------------------------------------------------------
+
+FASE 2 - ADIVINA EL COLOR - JUGADOR 2
+
+- El Jugador 2 deberá adivinar los 4 colores que ha seleccionado el
+Jugador 1 con anterioridad.
+
+- En caso de acertar el color (pero no posición) el color quedará 
+marcado con una circumferencia naranja, en caso de que acierte ambos
+se maracara de color blanco.
+
+Nota extra:
+
+- En caso de acertar un color la posición quedará bloqueada para prevenir 
+cambios involuntarios.
+
+- Para cambiar el volumen el Jugador 2 tendrá a disposición en la parte
+inferior derecha una barra para aumentar o disminuirlo.
+
+- Presenta las mismas notas extra que el Jugador 1 sobre la selección de 
+colores

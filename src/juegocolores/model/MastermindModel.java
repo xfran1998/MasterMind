@@ -8,9 +8,11 @@ package juegocolores.model;
 import ini.view.JuegoColoresView;
 import java.awt.Color;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 import jug1.view.Jug1View;
 import jug2.view.Jug2View;
@@ -56,6 +58,7 @@ public class MastermindModel {
     private Jug2View vista3;
     
     Clip music;
+    Ranking myRanking = new Ranking(5, 10);
     
     boolean fin = false;
     
@@ -468,6 +471,8 @@ public class MastermindModel {
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
             music = AudioSystem.getClip();
             music.open(inputStream);
+            
+            changeMusicLevel(50);
         }catch (Exception e){
             System.out.println("Musica no encontrada");
             System.err.println(e.getMessage());
@@ -499,4 +504,68 @@ public class MastermindModel {
         float gain = (range * level) + volumen.getMinimum();
         volumen.setValue(gain);
     }
+    
+    public void loadRanking(){
+        myRanking.LeerRanking();
+    }
+    
+    public void saveRanking(){
+        myRanking.saveRaking();
+    }
+    
+    public void addPlayer(){
+        myRanking.addRanking(new UserRanking(nombre, turno));
+    }
+    
+    public String[] getRanking(){
+        return myRanking.getRanking();
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public String getAutores(){
+        String path = System.getProperty("user.dir")+"/textos/autores.txt";
+        String name = "";
+        
+        try {
+            Scanner myReader = new Scanner(new File(path));
+            
+            
+            while (myReader.hasNextLine()) {
+                name = myReader.nextLine();
+            }
+            myReader.close();
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("no ha funcionado");
+            e.printStackTrace();
+        }
+        
+        return name;
+    }
+    
+    public String getInstr(){
+        String path = System.getProperty("user.dir")+"/textos/autores.txt";
+        String name = "";
+        
+        try {
+            Scanner myReader = new Scanner(new File(path));
+            
+            
+            while (myReader.hasNextLine()) {
+                name = myReader.nextLine();
+            }
+            myReader.close();
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("no ha funcionado");
+            e.printStackTrace();
+        }
+        
+        return name;
+    }
+    
+    
 }

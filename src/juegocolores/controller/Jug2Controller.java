@@ -38,9 +38,12 @@ public class Jug2Controller {
             if (comando == "siguiente")
             {
                 model.aumentaTurno();
+                model.comprobarIntento();
                 
-                if (model.getTurno() == 5)
+                if (model.getTurno() == 5 || model.comprobarVictoria())
                     view.cambiaBoton();
+                
+                view.repinta();
             }
         }
     }
@@ -67,7 +70,6 @@ public class Jug2Controller {
                     for (int j = 0; j < 4; j++)
                         if (me.getX() >= (view.getOffsetX()+(view.getRadio()+view.getEspacio())*j) && me.getX() <= (view.getOffsetX()+(view.getRadio()*(j+1))+(view.getEspacio())*j))
                         {
-                            System.out.println("pene: " + (j+1));
                             model.setSeleccionado2(j+1);
                             view.repinta();
                         }

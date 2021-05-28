@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -20,13 +21,18 @@ import javax.swing.JFrame;
  *
  * @author oscar
  */
-class AvatarPanel extends JPanel{
-    private BufferedImage imagen;
+class AvatarPanel extends JPanel implements Runnable{
+    private ArrayList<BufferedImage> pensando = new ArrayList<>();
+    private int stage = 1;
+    private int frame = 0;
 
 
     public AvatarPanel() {
         try {
-            imagen = ImageIO.read(new File(System.getProperty("user.dir")+"/imagenes/avatar1.png"));
+            for (int i=2; i <= 3; i++){
+                pensando.add(ImageIO.read(new File(System.getProperty("user.dir")+"/imagenes/avatar" + Integer.toString(i) + ".png")));
+                System.out.println("Leido: " + System.getProperty("user.dir")+"/imagenes/avatar" + Integer.toString(i) + ".png");
+            }
         } catch (IOException ex) {
             Logger.getLogger(AvatarPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -38,7 +44,25 @@ class AvatarPanel extends JPanel{
     {
         super.paintComponent(g);
         
-        g.drawImage(imagen, 0, 0, 396, 396, this);
+        g.drawImage(pensando.get(frame), 0, 0, 396, 396, this);
+    }
+    
+    @Override
+    public void run() {
+        
+        while(true){
+            repaint();
+            frame++;
+            
+            if (frame == pensando.size()){
+                frame = 0;
+            }
+            try{
+                Thread.sleep(500);
+            }catch(Exception e){
+                System.out.println("fallo el thread");
+            }
+        }
     }
 }
 

@@ -74,10 +74,7 @@ public class SeleccionPanel extends JPanel{
             {
                 g.setColor(Color.black);
                 g.setFont(new Font("Dialog", Font.BOLD, 18));
-                if (tipo == 1)
-                    g.drawString(model.getSNumber(i), (offsetX+(radio+espacio)*i)+(radio/2)-5, offsetY+(radio/2)+5);
-                else
-                    g.drawString(model.getSNumber2(i), (offsetX+(radio+espacio)*i)+(radio/2)-5, offsetY+(radio/2)+5);
+                g.drawString(model.getSNumber(tipo, i), (offsetX+(radio+espacio)*i)+(radio/2)-5, offsetY+(radio/2)+5);
             }
         }
         

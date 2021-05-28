@@ -69,7 +69,6 @@ public class Jug1Controller {
                     for (int j = 0; j < 4; j++)
                         if (me.getX() >= (view.getOffsetX()+(view.getRadio()+view.getEspacio())*j) && me.getX() <= (view.getOffsetX()+(view.getRadio()*(j+1))+(view.getEspacio())*j))
                         {
-                            System.out.println("pene: " + j+1);
                             model.setSeleccionado(j+1);
                             view.repinta();
                         }

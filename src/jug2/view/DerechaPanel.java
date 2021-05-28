@@ -34,6 +34,9 @@ public class DerechaPanel extends JPanel{
         add(audio, BorderLayout.SOUTH);
         add(boton, BorderLayout.CENTER);
         add(avatar, BorderLayout.NORTH);
+        
+        Thread avatarMovement = new Thread(avatar);
+        avatarMovement.start();
     }
 
     void setActionListener(ActionListener al) {

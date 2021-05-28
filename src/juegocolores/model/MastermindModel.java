@@ -186,25 +186,46 @@ public class MastermindModel {
             seleccionado2 = 1;
     }
 
-    public String getSNumber(int circulo) {
+    public String getSNumber(int tipo, int circulo) {
         int cont = 0;
         
-        while((cont < (numColores) && (elegidos[circulo] != colores[cont])))
-            cont++;
-        
-        cont++;
-        
-        if (cont > numColores)
-            return "-";
-        else
-            return String.valueOf(cont);
-    }
-
-    public String getSNumber2(int circulo) {
-        int cont = 0;
-        
-        while((cont < (numColores) && (elegidos2[circulo] != colores[cont])))
-            cont++;
+        switch(tipo)
+        {
+            case 1:
+                while((cont < (numColores) && (elegidos[circulo] != colores[cont])))
+                    cont++;
+                break;
+            
+            case 2:
+                while((cont < (numColores) && (elegidos2[circulo] != colores[cont])))
+                    cont++;
+                break;
+                
+            case 3:
+                while((cont < (numColores) && (intento5[circulo] != colores[cont])))
+                    cont++;
+                break;
+                
+            case 4:
+                while((cont < (numColores) && (intento4[circulo] != colores[cont])))
+                    cont++;
+                break;
+                
+            case 5:
+                while((cont < (numColores) && (intento3[circulo] != colores[cont])))
+                    cont++;
+                break;
+                
+            case 6:
+                while((cont < (numColores) && (intento2[circulo] != colores[cont])))
+                    cont++;
+                break;
+                
+            case 7:
+                while((cont < (numColores) && (intento1[circulo] != colores[cont])))
+                    cont++;
+                break;
+        }
         
         cont++;
         
@@ -228,6 +249,103 @@ public class MastermindModel {
     }
     
     public void comprobarIntento() {
-        for(int i = 0; i < )
+        
+        for(int j = 0; j < 4; j++)
+        {
+            intento5[j] = intento4[j];
+            aciertos5[j] = aciertos4[j];
+            intento4[j] = intento3[j];
+            aciertos4[j] = aciertos3[j];
+            intento3[j] = intento2[j];
+            aciertos3[j] = aciertos2[j];
+            intento2[j] = intento1[j];
+            aciertos2[j] = aciertos1[j];
+            intento1[j] = elegidos2[j];
+        }
+        
+        for(int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (elegidos2[i] == elegidos[j])
+                {
+                    if(i == j)
+                        aciertos1[i] = 2;
+                    else
+                        aciertos1[i] = 1;
+                }
+            }
+        }
+    }
+
+    public boolean comprobarVictoria() {
+        boolean victoria = true;
+        
+        for (int i = 0; i < 4; i++)
+        {
+            if(aciertos1[i] != 2)
+                victoria = false;
+        }
+        
+        return victoria;
+    }
+
+    public Color getIntento(int tipo, int circulo) {
+        Color salida = Color.white;
+        
+        switch(tipo)
+        {
+            case 0:
+                salida = intento1[circulo];
+                break;
+                
+            case 1:
+                salida = intento2[circulo];
+                break;
+                
+            case 2:
+                salida = intento3[circulo];
+                break;
+                
+            case 3:
+                salida = intento4[circulo];
+                break;
+                
+            case 4:
+                salida = intento5[circulo];
+                break;
+        }
+        
+        return salida;
+    }
+    
+    public int getAcierto(int tipo, int circulo)
+    {
+        int salida = 0;
+        
+        switch(tipo)
+        {
+            case 0:
+                salida = aciertos1[circulo];
+                break;
+                
+            case 1:
+                salida = aciertos2[circulo];
+                break;
+                
+            case 2:
+                salida = aciertos3[circulo];
+                break;
+                
+            case 3:
+                salida = aciertos4[circulo];
+                break;
+                
+            case 4:
+                salida = aciertos5[circulo];
+                break;
+        }
+        
+        return salida;
     }
 }

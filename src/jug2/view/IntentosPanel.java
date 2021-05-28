@@ -24,7 +24,7 @@ public class IntentosPanel extends JPanel{
         
         for (int i = 0; i < circulos.length; i++)
         {
-            circulos[i] = new CirculosPanel();
+            circulos[i] = new CirculosPanel(i, model);
             add(circulos[i]);
         }
         
@@ -44,6 +44,9 @@ public class IntentosPanel extends JPanel{
 
     void repinta() {
         seleccion.repaint();
+        for (int i = 0; i < 5; i++) {
+            circulos[i].repaint();
+        }
     }
 
     int getEspacio() {

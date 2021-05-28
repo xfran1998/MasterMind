@@ -5,6 +5,7 @@
  */
 package jug2.view;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -53,6 +54,21 @@ public class CirculosPanel extends JPanel{
                 g.setColor(Color.black);
                 g.setFont(new Font("Dialog", Font.BOLD, 18));
                 g.drawString(model.getSNumber(3+tipo, i), (offsetX+(radio+espacio)*i)+(radio/2)-5, offsetY+(radio/2)+5);
+            }
+            
+            if (model.getAcierto(4-tipo, i) == 1)
+            {
+                g2.setColor(Color.orange);
+                g2.setStroke(new BasicStroke(6));
+                //los valores extra son para reposicionar el circulo grande y centrarlo sobre el circulo pequeño
+                g2.drawOval((offsetX-2)+(radio+espacio)*i, centrar-2, radio+4, radio+4);
+            }
+            else if (model.getAcierto(4-tipo, i) == 2)
+            {
+                g2.setColor(Color.white);
+                g2.setStroke(new BasicStroke(6));
+                //los valores extra son para reposicionar el circulo grande y centrarlo sobre el circulo pequeño
+                g2.drawOval((offsetX-2)+(radio+espacio)*i, centrar-2, radio+4, radio+4);
             }
         }
     }

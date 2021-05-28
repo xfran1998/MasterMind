@@ -5,6 +5,7 @@
  */
 package ini.view;
 
+import general.view.MastermindMenuBar;
 import ini.view.MyDefaultMetalTheme3;
 import ini.view.PreferencesPanel;
 import ini.view.NombrePanel;
@@ -30,6 +31,7 @@ public class JuegoColoresView extends JFrame{
     private TituloPanel titulo;
     private NombrePanel nombre;
     private PreferencesPanel pref;
+    private MastermindMenuBar menu;
             
     public JuegoColoresView(){
         
@@ -59,6 +61,9 @@ public class JuegoColoresView extends JFrame{
         
         
         //componentes de la vista
+        menu = new MastermindMenuBar();
+        setJMenuBar(menu);
+        
         titulo = new TituloPanel();
         nombre = new NombrePanel();
         pref = new PreferencesPanel();
@@ -74,6 +79,7 @@ public class JuegoColoresView extends JFrame{
     
     public void setActionListener (ActionListener al)
     {
+        menu.setActionListener(al);
         nombre.setActionListener(al);
         pref.setActionListener(al);
     }

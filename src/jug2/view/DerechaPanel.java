@@ -34,9 +34,6 @@ public class DerechaPanel extends JPanel{
         add(audio, BorderLayout.SOUTH);
         add(boton, BorderLayout.CENTER);
         add(avatar, BorderLayout.NORTH);
-        
-        Thread avatarMovement = new Thread(avatar);
-        avatarMovement.start();
     }
 
     void setActionListener(ActionListener al) {
@@ -45,5 +42,18 @@ public class DerechaPanel extends JPanel{
 
     void cambiaBoton() {
         boton.cambiaBoton();
+    }
+    
+    public void setAnim(int anim){
+        avatar.setAnim(anim);
+    }
+    
+    public void startAnim(){
+        Thread avatarMovement = new Thread(avatar);
+        avatarMovement.start();
+    }
+    
+    public void stopAnim(){
+        avatar.stopAnim();
     }
 }

@@ -57,6 +57,8 @@ public class Jug2View extends JFrame{
         derecha = new DerechaPanel();
         add(derecha, BorderLayout.CENTER);
         
+        derecha.startAnim();
+        
         this.setVisible(true);
         
     }
@@ -110,5 +112,13 @@ public class Jug2View extends JFrame{
 
     public void cambiaBoton() {
         derecha.cambiaBoton(); 
+    }
+    
+    public void setAnim(int anim){
+        derecha.setAnim(anim);
+    }
+    
+    public void stopAnim(){
+        derecha.stopAnim();
     }
 }

@@ -5,6 +5,7 @@
  */
 package juegocolores.controller;
 
+import informacion.view.InformacionView;
 import ini.view.JuegoColoresView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +14,7 @@ import javax.swing.event.ChangeListener;
 import juegocolores.model.MastermindModel;
 import jug1.view.Jug1View;
 import jug2.view.Jug2View;
+import ranking.view.RankingView;
 
 /**
  *
@@ -61,6 +63,30 @@ public class MastermindController {
                     
                 case "daltonicos":
                     model.changeDaltonicos();
+                    break;
+                    
+                case "reiniciar":
+                    model.reiniciar();
+                    break;
+                    
+                case "opciones":
+                    //sacar una pantalla con opciones
+                    break;
+                
+                case "ranking":
+                    new RankingView(1);
+                    break;
+                
+                case "MenuSalir":
+                    System.exit(0);
+                    break;
+                    
+                case "instruc":
+                    new InformacionView(1);
+                    break;
+                    
+                case "info":
+                    new InformacionView(2);
                     break;
             }
         }

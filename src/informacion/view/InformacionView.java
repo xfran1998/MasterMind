@@ -5,6 +5,8 @@
  */
 package informacion.view;
 
+import ini.view.MyDefaultMetalTheme;
+import ini.view.MyDefaultMetalTheme2;
 import ini.view.MyDefaultMetalTheme3;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
@@ -21,13 +23,22 @@ public class InformacionView extends JFrame{
     BotonPanel boton;
     InfoPanel informacion;
     
-    public InformacionView() {
+    public InformacionView(int tipo) {
         //estilo de la ventana
         setLayout(new BorderLayout());
         //hacer que al cerrar desde la x se cierre el programa
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700,600);
-        setTitle("Mastermind - Informacion");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        if (tipo == 1)
+        {
+            setSize(700,600);
+            setTitle("Mastermind - Instrucciones");
+        }
+        else if (tipo == 2)
+        {
+            setSize(700,200);
+            setTitle("Mastermind - Informacion");
+        }
         setResizable(false);
         
         this.setLocationRelativeTo(null);
@@ -36,7 +47,7 @@ public class InformacionView extends JFrame{
         this.getRootPane().setWindowDecorationStyle(3);
         
 
-        MetalLookAndFeel.setCurrentTheme(new MyDefaultMetalTheme3());
+        MetalLookAndFeel.setCurrentTheme(new MyDefaultMetalTheme2());
         
         try {
           UIManager.setLookAndFeel(new MetalLookAndFeel());

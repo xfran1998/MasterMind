@@ -37,11 +37,15 @@ public class MastermindModel {
     private int[] aciertos4 = {0,0,0,0};
     private int[] aciertos5 = {0,0,0,0};
     
+    private int acertado = 0;
+    
     private Color[] intento1 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento2 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento3 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento4 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento5 = {Color.white, Color.white, Color.white, Color.white};
+    
+    boolean fin = false;
     
     public MastermindModel(){
     }
@@ -265,6 +269,7 @@ public class MastermindModel {
         
         for(int i = 0; i < 4; i++)
         {
+            aciertos1[i] = 0;
             for (int j = 0; j < 4; j++)
             {
                 if (elegidos2[i] == elegidos[j])
@@ -347,5 +352,62 @@ public class MastermindModel {
         }
         
         return salida;
+    }
+    
+    public boolean compararAciertos()
+    {
+        int nuevosAciertos = 0;
+        boolean mayor = false;
+        
+        for(int i = 0; i < aciertos1.length; i++)
+        {
+            nuevosAciertos += aciertos1[i];
+        }
+        
+        if (nuevosAciertos > acertado)
+            mayor = true;
+        
+        acertado = nuevosAciertos;
+        return mayor;
+    }
+
+    public void setFin() {
+        fin = true;
+    }
+    
+    public boolean getFin(){
+        return fin;
+    }
+
+    public void reiniciar() {
+        nombre = "";
+        jugadas = 0;
+        modo = 2;
+        daltonicos = false;
+        seleccionado = 1;
+        seleccionado2 = 1;
+        numColores = 8;
+        turno = 0;
+        acertado = 0;
+
+        fin = false;
+        
+        for (int i = 0; i < 4; i++)
+        {
+            elegidos[i] = Color.white;
+            elegidos2[i] = Color.white;
+            
+            aciertos1[i] = 0;
+            aciertos2[i] = 0;
+            aciertos3[i] = 0;
+            aciertos4[i] = 0;
+            aciertos5[i] = 0;
+            
+            intento1[i] = Color.white;
+            intento2[i] = Color.white;
+            intento3[i] = Color.white;
+            intento4[i] = Color.white;
+            intento5[i] = Color.white;
+        }
     }
 }

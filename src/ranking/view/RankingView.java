@@ -5,6 +5,7 @@
  */
 package ranking.view;
 
+import ini.view.MyDefaultMetalTheme2;
 import ini.view.MyDefaultMetalTheme3;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
@@ -26,7 +27,7 @@ public class RankingView extends JFrame{
         //estilo de la ventana
         setLayout(new BorderLayout());
         //hacer que al cerrar desde la x se cierre el programa
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(500,700);
         setTitle("Mastermind - Ranking");
         setResizable(false);
@@ -37,7 +38,7 @@ public class RankingView extends JFrame{
         this.getRootPane().setWindowDecorationStyle(3);
         
 
-        MetalLookAndFeel.setCurrentTheme(new MyDefaultMetalTheme3());
+        MetalLookAndFeel.setCurrentTheme(new MyDefaultMetalTheme2());
         
         try {
           UIManager.setLookAndFeel(new MetalLookAndFeel());

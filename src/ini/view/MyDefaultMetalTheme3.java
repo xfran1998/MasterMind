@@ -72,22 +72,22 @@ public class MyDefaultMetalTheme3 extends DefaultMetalTheme {
     
     @Override
     public ColorUIResource getMenuBackground() {
-        return new ColorUIResource(java.awt.Color.white);
+        return new ColorUIResource(java.awt.Color.black);
     }
     
     @Override
     public ColorUIResource getMenuForeground() {
-        return new ColorUIResource(java.awt.Color.black);
+        return new ColorUIResource(java.awt.Color.white);
     }
     
     @Override
     public ColorUIResource getMenuSelectedBackground() {
-        return new ColorUIResource(java.awt.Color.black);
+        return new ColorUIResource(java.awt.Color.white);
     }
     
     @Override
     public ColorUIResource getMenuSelectedForeground() {
-        return new ColorUIResource(java.awt.Color.white);
+        return new ColorUIResource(java.awt.Color.black);
     }
     
     /*

@@ -16,6 +16,8 @@ import java.awt.Polygon;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.event.ChangeListener;
+import juegocolores.model.MastermindModel;
 
 /**
  *
@@ -86,7 +88,11 @@ class AudioPanel extends JPanel{
         g2.setColor(Color.white);
     }
     
-    private int getVolumen(){
+    public int getVolumen(){
         return slider.getValue();
+    }
+
+    void setMySliderListener(ChangeListener cl) {
+        slider.addChangeListener(cl);
     }
 }

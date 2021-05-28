@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import javax.swing.event.ChangeListener;
+import juegocolores.model.MastermindModel;
 import jug1.view.BotonPanel;
 
 /**
@@ -55,5 +57,17 @@ public class DerechaPanel extends JPanel{
     
     public void stopAnim(){
         avatar.stopAnim();
+    }
+
+    public void repintaVolumen() {
+        audio.repaint();
+    }
+
+    public int getVolumen() {
+        return audio.getVolumen();
+    }
+
+    void setMySliderListener(ChangeListener cl) {
+        audio.setMySliderListener(cl);
     }
 }

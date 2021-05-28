@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.event.ChangeListener;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import juegocolores.controller.Jug2Controller;
@@ -125,5 +126,17 @@ public class Jug2View extends JFrame{
     
     public void stopAnim(){
         derecha.stopAnim();
+    }
+
+    public void repintaVolumen() {
+        derecha.repaint();
+    }
+
+    public int getVolumen() {
+        return derecha.getVolumen();
+    }
+
+    public void setMySliderListener(ChangeListener cl) {
+        derecha.setMySliderListener(cl);
     }
 }

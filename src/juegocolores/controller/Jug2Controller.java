@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import juegocolores.model.MastermindModel;
 import jug2.view.Jug2View;
 import ranking.view.RankingView;
@@ -29,6 +31,7 @@ public class Jug2Controller {
         
         view.setActionListener(new MyActionListener());
         view.setMyMouseListener(new Jug2Controller.MyMouseListener());
+        view.setMySliderListener(new MySliderListener());
     }
     
     //clases empotradas
@@ -154,6 +157,16 @@ public class Jug2Controller {
 
         @Override
         public void mouseExited(MouseEvent e) {
+        }
+    }
+    
+    class MySliderListener implements ChangeListener {
+        @Override
+        public void stateChanged(ChangeEvent ce)
+        {
+            int vol = view.getVolumen();
+            model.changeMusicLevel(vol);
+            view.repintaVolumen();
         }
     }
 }

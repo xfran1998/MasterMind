@@ -60,23 +60,40 @@ public class SeleccionPanel extends JPanel{
         
         for(int i = 0; i < numColor; i++)
         {
-            if (i == 0)
-                g2.setColor(Color.red);
-            else
-                g2.setColor(Color.WHITE); //Test
+            g2.setColor(model.getColorEleccion(i));
             g2.fillOval(offsetX+(radio*i)+(espacio*i), centrar, radio, radio);
-        }
-        
-        if (true)
-        {
-            g.setColor(Color.black);
-            g.setFont(new Font("Dialog", Font.BOLD, 18));
-            g.drawString("1", (offsetX+radio/2)-5, offsetY+(radio/2)+5);
+            
+            if (model.getDaltonicos())
+            {
+                g.setColor(Color.black);
+                g.setFont(new Font("Dialog", Font.BOLD, 18));
+                g.drawString(model.getSNumber(i), (offsetX+(radio+espacio)*i)+(radio/2)-5, offsetY+(radio/2)+5);
+            }
         }
         
         g2.setColor(Color.orange);
         g2.setStroke(new BasicStroke(6));
         //los valores extra son para reposicionar el circulo grande y centrarlo sobre el circulo pequeño
-        g2.drawOval(offsetX-2+radio+espacio, centrar-2, radio+4, radio+4);
+        g2.drawOval((offsetX-2)+(radio+espacio)*(model.getSeleccionado()-1), centrar-2, radio+4, radio+4);
+    }
+    
+    public int getRadio()
+    {
+        return radio;
+    }
+    
+    public int getEspacio()
+    {
+        return espacio;
+    }
+    
+    public int getCentrar()
+    {
+        return centrar;
+    }
+    
+    public int getOffsetX()
+    {
+        return offsetX;
     }
 }

@@ -1,4 +1,4 @@
-package juegoColores.model;
+package juegocolores.model;
 
 public class UserRanking {
     private String name;

@@ -50,7 +50,7 @@ public class MastermindController {
                     {
                         model.randomizeSelections();
                         view.setVisible(false);
-                        Jug2View viewJug2 = new Jug2View();
+                        Jug2View viewJug2 = new Jug2View(model);
                         Jug2Controller controllerJug1 = new Jug2Controller(viewJug2, model);
                     }
                     break;

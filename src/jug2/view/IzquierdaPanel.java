@@ -8,6 +8,7 @@ package jug2.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import juegocolores.model.MastermindModel;
 import jug1.view.ColoresPanel;
 
 /**
@@ -19,13 +20,13 @@ public class IzquierdaPanel extends JPanel{
     private ColoresPanel colores;
     
     
-    public IzquierdaPanel() {
+    public IzquierdaPanel(MastermindModel model) {
         setLayout(new BorderLayout());
         
-        intentos = new IntentosPanel();
+        intentos = new IntentosPanel(model);
         
         
-        colores = new ColoresPanel(2);
+        colores = new ColoresPanel(2, model);
         colores.setPreferredSize(new Dimension(110, 110));
         
         add(intentos, BorderLayout.CENTER);

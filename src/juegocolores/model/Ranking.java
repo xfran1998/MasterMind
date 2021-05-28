@@ -1,14 +1,14 @@
-package juegoColores.model;
+package juegocolores.model;
 
 import java.awt.List;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.ArrayList;
 import java.util.Scanner; // Import the Scanner class to read text files
-/*
+
 public class Ranking {
-    private List<UserRanking> myRanking = new ArrayList<>();
-    
+    private ArrayList<UserRanking> myRanking = new ArrayList<>();
+
     public Ranking(){
        
     }
@@ -30,11 +30,11 @@ public class Ranking {
         }
     }
 
-    public List<UserRanking> getRanking(){
+    public ArrayList<UserRanking> getRanking(){
         return myRanking;
     }
 
-    public test(){
+    public void test(){
         for (int i=0; i < myRanking.size(); i++)
         {
             UserRanking myUser = myRanking.get(i);
@@ -44,4 +44,3 @@ public class Ranking {
         }
     }
 }
-*/

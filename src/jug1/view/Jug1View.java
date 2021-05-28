@@ -57,7 +57,7 @@ public class Jug1View extends JFrame{
         //componentes de la vista
         this.model = model;
         
-        colores = new ColoresPanel(1);
+        colores = new ColoresPanel(1, model);
         colores.setPreferredSize(new Dimension(0, 160));
         
         seleccion = new SeleccionPanel(1, model);
@@ -94,5 +94,29 @@ public class Jug1View extends JFrame{
     public int getAltura()
     {
         return colores.getAltura();
+    }
+
+    public void repinta() {
+        seleccion.repaint();
+    }
+    
+    public int getRadio()
+    {
+        return seleccion.getRadio();
+    }
+    
+    public int getEspacio()
+    {
+        return seleccion.getEspacio();
+    }
+    
+    public int getCentrar()
+    {
+        return seleccion.getCentrar();
+    }
+    
+    public int getOffsetX()
+    {
+        return seleccion.getOffsetX();
     }
 }

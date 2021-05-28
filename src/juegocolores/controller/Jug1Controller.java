@@ -6,6 +6,7 @@
 package juegocolores.controller;
 
 import ini.view.JuegoColoresView;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -40,7 +41,7 @@ public class Jug1Controller {
                 if (model.comprobarCompleto())
                 {
                     view.setVisible(false);
-                    Jug2View viewJug2 = new Jug2View();
+                    Jug2View viewJug2 = new Jug2View(model);
                     Jug2Controller controllerJug1 = new Jug2Controller(viewJug2, model);
                 }
         }
@@ -56,9 +57,22 @@ public class Jug1Controller {
             {
                 System.out.println(me.getX() + " " + me.getY());
                 
-                for (int i = 0; i < model.getLargoColores(); i++)
-                    if (me.getX() > view.getBorde()+(view.getAncho()*i) && me.getX() <= view.getBorde()+(view.getAncho()*(i+1)) && me.getY() > view.getBorde() && me.getY() <= view.getAltura())
-                        model.addColor(model.getColor(i));
+                if (me.getSource().getClass().toString().contains("ColoresPanel"))
+                    for (int i = 0; i < model.getLargoColores(); i++)
+                        if (me.getX() > view.getBorde()+(view.getAncho()*i) && me.getX() <= view.getBorde()+(view.getAncho()*(i+1)) && me.getY() > view.getBorde() && me.getY() <= view.getAltura())
+                        {
+                            model.addColor(model.getColor(i));
+                            model.siguienteCirc();
+                            view.repinta();
+                        }
+                if (me.getSource().getClass().toString().contains("SeleccionPanel"))
+                    for (int j = 0; j < 4; j++)
+                        if (me.getX() >= (view.getOffsetX()+(view.getRadio()+view.getEspacio())*j) && me.getX() <= (view.getOffsetX()+(view.getRadio()*(j+1))+(view.getEspacio())*j))
+                        {
+                            System.out.println("pene: " + j+1);
+                            model.setSeleccionado(j+1);
+                            view.repinta();
+                        }
                 
                 //hay que hacer la seleccion del circulo a pintar
             }

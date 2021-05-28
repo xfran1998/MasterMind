@@ -14,12 +14,13 @@ import javax.swing.UIManager;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import juegocolores.controller.Jug2Controller;
+import juegocolores.model.MastermindModel;
 
 public class Jug2View extends JFrame{
     private DerechaPanel derecha;
     private IzquierdaPanel izquierda;
 
-    public Jug2View(){
+    public Jug2View(MastermindModel model){
         
         //estilo de la ventana
         setLayout(new BorderLayout());
@@ -47,7 +48,7 @@ public class Jug2View extends JFrame{
         
         //componentes de la vista
         
-        izquierda = new IzquierdaPanel();
+        izquierda = new IzquierdaPanel(model);
         izquierda.setPreferredSize(new Dimension(550,550));
         
         add(izquierda, BorderLayout.WEST);

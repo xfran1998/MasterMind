@@ -6,7 +6,6 @@
 package juegocolores.model;
 
 import java.awt.Color;
-import static java.lang.Math.random;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
@@ -26,6 +25,8 @@ public class MastermindModel {
     private Color[] elegidos = {Color.white, Color.white, Color.white, Color.white};
     private int seleccionado = 1;
     private final Color[] colores = {Color.red, Color.yellow, Color.blue, Color.green, Color.pink, new Color(112, 36, 160), new Color(150, 75, 0), new Color(63, 224, 208)};
+    
+    private int numColores = 8;
     
     public MastermindModel(){
     }
@@ -68,7 +69,7 @@ public class MastermindModel {
     public void addColor(Color color)
     {
         comprobarColor(color);
-        elegidos[seleccionado] = color;
+        elegidos[seleccionado-1] = color;
     }
     
     public void comprobarColor(Color color)
@@ -81,6 +82,11 @@ public class MastermindModel {
     public Color[] getElecciones()
     {
         return elegidos;
+    }
+    
+    public Color getColorEleccion(int sel)
+    {
+        return elegidos[sel];
     }
     
     public void randomizeSelections()
@@ -114,5 +120,26 @@ public class MastermindModel {
 
     public int getLargoColores() {
         return colores.length;
+    }
+    
+    public void siguienteCirc() {
+        seleccionado++;
+        
+        if (seleccionado > 4)
+            seleccionado = 1;
+    }
+
+    public String getSNumber(int circulo) {
+        int cont = 0;
+        
+        while((cont < (numColores) && (elegidos[circulo] != colores[cont])))
+            cont++;
+        
+        cont++;
+        
+        if (cont > numColores)
+            return "-";
+        else
+            return String.valueOf(cont);
     }
 }

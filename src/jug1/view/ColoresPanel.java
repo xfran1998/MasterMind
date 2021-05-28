@@ -12,6 +12,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import juegocolores.model.MastermindModel;
 
 /**
  *
@@ -26,11 +27,14 @@ public class ColoresPanel extends JPanel{
     
     private int borde;
     private int tipo;
+    private MastermindModel model;
     
     
-    public ColoresPanel(int tipo){
+    public ColoresPanel(int tipo, MastermindModel model){
         setLayout(new FlowLayout(FlowLayout.CENTER));
 
+        this.model = model;
+        
         if (tipo == 1)
             borde = 20;
         else if (tipo == 2)
@@ -61,7 +65,7 @@ public class ColoresPanel extends JPanel{
             System.out.println(ancho*i);
             
             //aqui habria que mirar en el modelo si esta puest el modo daltonicos
-            if (true)
+            if (model.getDaltonicos())
             {
                 g.setColor(Color.black);
                 g.setFont(new Font("Dialog", Font.BOLD, 18));

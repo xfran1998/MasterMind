@@ -1,32 +1,34 @@
-package jug2.view;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ranking.view;
 
 import ini.view.MyDefaultMetalTheme3;
-import ini.view.TituloPanel;
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
-import juegocolores.controller.Jug2Controller;
+import jug1.view.BotonPanel;
 
-public class Jug2View extends JFrame{
-    private DerechaPanel derecha;
-    private IzquierdaPanel izquierda;
+/**
+ *
+ * @author oscar
+ */
+public class RankingView extends JFrame{
+    private BotonPanel boton;
+    private RankingPanel ranking;
+    private ResultadoPanel resultado;
 
-    public Jug2View(){
-        
+    public RankingView(int tipo){
         //estilo de la ventana
         setLayout(new BorderLayout());
         //hacer que al cerrar desde la x se cierre el programa
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000,700);
-        setTitle("Mastermind - Jugador 2");
+        setSize(500,700);
+        setTitle("Mastermind - Ranking");
         setResizable(false);
         
         this.setLocationRelativeTo(null);
@@ -46,20 +48,18 @@ public class Jug2View extends JFrame{
         SwingUtilities.updateComponentTreeUI(this);
         
         //componentes de la vista
+        boton = new BotonPanel(3);
         
-        izquierda = new IzquierdaPanel();
-        izquierda.setPreferredSize(new Dimension(550,550));
+        ranking = new RankingPanel();
         
-        add(izquierda, BorderLayout.WEST);
+        resultado = new ResultadoPanel(2);
         
-        derecha = new DerechaPanel();
-        add(derecha, BorderLayout.CENTER);
+        if (tipo == 2)
+            add(resultado, BorderLayout.NORTH);
+
+        add(ranking, BorderLayout.CENTER);
+        add(boton, BorderLayout.SOUTH);
         
         this.setVisible(true);
-        
-    }
-
-    public void setActionListener(ActionListener al) {
-        
     }
 }

@@ -5,6 +5,8 @@ import ini.view.TituloPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
@@ -12,6 +14,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
+import juegocolores.controller.Jug1Controller;
+import juegocolores.model.MastermindModel;
 
 /**
  *
@@ -22,8 +26,9 @@ public class Jug1View extends JFrame{
     private ColoresPanel colores;
     private SeleccionPanel seleccion;
     private BotonPanel boton;
+    private MastermindModel model;
 
-    public Jug1View(){
+    public Jug1View(MastermindModel model){
         
         //estilo de la ventana
         setLayout(new BorderLayout());
@@ -50,11 +55,12 @@ public class Jug1View extends JFrame{
         SwingUtilities.updateComponentTreeUI(this);
         
         //componentes de la vista
+        this.model = model;
         
         colores = new ColoresPanel(1);
         colores.setPreferredSize(new Dimension(0, 160));
         
-        seleccion = new SeleccionPanel(1);
+        seleccion = new SeleccionPanel(1, model);
         
         boton = new BotonPanel(1);
         
@@ -64,5 +70,29 @@ public class Jug1View extends JFrame{
         
         this.setVisible(true);
         
+    }
+
+    public void setActionListener(ActionListener al) {
+        boton.setActionListener(al);
+    }
+
+    public void setMyMouseListener(MouseListener ml) {
+        colores.addMouseListener(ml);
+        seleccion.addMouseListener(ml);
+    }
+    
+    public int getAncho()
+    {
+        return colores.getAncho();
+    }
+    
+    public int getBorde()
+    {
+        return colores.getBorde();
+    }
+    
+    public int getAltura()
+    {
+        return colores.getAltura();
     }
 }

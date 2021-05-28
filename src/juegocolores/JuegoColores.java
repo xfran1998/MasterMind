@@ -5,9 +5,13 @@
  */
 package juegocolores;
 
+import informacion.view.InformacionView;
 import ini.view.JuegoColoresView;
+import juegocolores.controller.MastermindController;
+import juegocolores.model.MastermindModel;
 import jug1.view.Jug1View;
 import jug2.view.Jug2View;
+import ranking.view.RankingView;
 
 /**
  *
@@ -20,10 +24,15 @@ public class JuegoColores {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //JuegoColoresView view = new JuegoColoresView();
-        //Jug1View view = new Jug1View();
-        Jug2View view = new Jug2View();
         
+        MastermindModel model = new MastermindModel();
+        JuegoColoresView view = new JuegoColoresView();
+        MastermindController controller = new MastermindController(view, model);
+        
+        //Jug1View view = new Jug1View();
+        //Jug2View view = new Jug2View();
+        //RankingView view = new RankingView(1);
+        //InformacionView view = new InformacionView();
     }
     
 }

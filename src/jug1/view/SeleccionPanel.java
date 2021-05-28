@@ -12,6 +12,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import juegocolores.model.MastermindModel;
 
 /**
  *
@@ -25,9 +26,13 @@ public class SeleccionPanel extends JPanel{
     private final int numColor = 4;
     private int espacio;
     private int centrar;
+    private MastermindModel model;
     
-    public SeleccionPanel(int tipo){
+    public SeleccionPanel(int tipo, MastermindModel model){
         setLayout(new FlowLayout(FlowLayout.CENTER));
+        
+        this.model = model;
+        //lo dejo por aqui
         
         if (tipo == 1)
         {

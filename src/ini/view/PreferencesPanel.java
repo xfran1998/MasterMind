@@ -7,6 +7,7 @@ package ini.view;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -26,12 +27,14 @@ class PreferencesPanel extends JPanel{
         
         check1 = new JCheckBox();
         check1.setForeground(Color.white);
+        check1.setActionCommand("daltonicos");
         
         texto1 = new JLabel("Activar modo daltonicos");
         texto1.setForeground(new Color(250, 240, 240));
         
         check2 = new JCheckBox();
         check2.setForeground(Color.white);
+        check2.setActionCommand("cambioModo");
         
         texto2 = new JLabel("Modo 1 jugador");
         texto2.setForeground(new Color(250, 240, 240));
@@ -47,5 +50,10 @@ class PreferencesPanel extends JPanel{
         
         add(capa1);
         add(capa2);
+    }
+
+    public void setActionListener(ActionListener al) {
+        check1.addActionListener(al);
+        check2.addActionListener(al);
     }
 }

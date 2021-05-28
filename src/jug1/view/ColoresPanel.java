@@ -71,4 +71,19 @@ public class ColoresPanel extends JPanel{
         
         
     }
+    
+    public int getAncho()
+    {
+        return ancho;
+    }
+    
+    public int getBorde()
+    {
+        return borde;
+    }
+    
+    public int getAltura()
+    {
+        return altura;
+    }
 }

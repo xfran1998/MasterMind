@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -58,6 +59,8 @@ class NombrePanel extends JPanel{
         boton.setFont(new Font("Monoespaced", Font.PLAIN, 18));
         boton.setFocusPainted(false);
         
+        boton.setActionCommand("siguiente");
+        
         Border bordeExt = BorderFactory.createMatteBorder(2, 2, 0, 0, new Color(65, 63, 245));
         Border bordeExt2 = BorderFactory.createMatteBorder(0, 2, 2, 0, new Color(111, 65, 245));
         Border bordeExt3 = BorderFactory.createMatteBorder(0, 0, 2, 2, new Color(147, 62, 245));
@@ -81,5 +84,15 @@ class NombrePanel extends JPanel{
         Border superior = BorderFactory.createEmptyBorder(50, 0, 110, 0);
         setBorder(superior);
         
+    }
+    
+    public void setActionListener (ActionListener al)
+    {
+        boton.addActionListener(al);
+    }
+    
+    public String getNombre()
+    {
+        return nombre.getText();
     }
 }

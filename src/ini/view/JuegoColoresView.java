@@ -12,6 +12,7 @@ import ini.view.TituloPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
@@ -69,5 +70,16 @@ public class JuegoColoresView extends JFrame{
         
         this.setVisible(true);
         
+    }
+    
+    public void setActionListener (ActionListener al)
+    {
+        nombre.setActionListener(al);
+        pref.setActionListener(al);
+    }
+    
+    public String getNombre()
+    {
+        return nombre.getNombre();
     }
 }

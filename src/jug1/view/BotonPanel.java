@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -30,12 +31,15 @@ public class BotonPanel extends JPanel{
         boton = new JButton("Acabar turno");
         if (tipo == 2)
             boton.setText("Probar Suerte");
+        if (tipo == 3)
+            boton.setText("Cerrar");
         
         boton.setAlignmentX(CENTER_ALIGNMENT);
         boton.setBackground(new Color(0, 0, 0));
         boton.setForeground(new Color(210, 200, 200));
         boton.setFont(new Font("Monoespaced", Font.PLAIN, 18));
         boton.setFocusPainted(false);
+        boton.setActionCommand("siguiente");
 
         Border bordeExt = BorderFactory.createMatteBorder(2, 2, 0, 0, new Color(65, 63, 245));
         Border bordeExt2 = BorderFactory.createMatteBorder(0, 2, 2, 0, new Color(111, 65, 245));
@@ -52,5 +56,9 @@ public class BotonPanel extends JPanel{
 
         centrar.add(boton);
         add(centrar);
+    }
+
+    void setActionListener(ActionListener al) {
+        boton.addActionListener(al);
     }
 }

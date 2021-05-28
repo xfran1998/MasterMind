@@ -44,12 +44,18 @@ public class MastermindController {
                     if (model.comprobarNombre())
                         if (model.getModo() == 2)
                         {
+                            model.setVista1(view);
                             view.setVisible(false);
                             Jug1View viewJug1 = new Jug1View(model);
                             Jug1Controller controllerJug1 = new Jug1Controller(viewJug1, model);
                         }
                         else
                         {
+                            //Empezar musica
+                            model.setMusic();
+                            model.startMusic();
+                            
+                            model.setVista1(view);
                             model.randomizeSelections();
                             view.setVisible(false);
                             Jug2View viewJug2 = new Jug2View(model);
@@ -70,11 +76,12 @@ public class MastermindController {
                     break;
                     
                 case "opciones":
-                    //sacar una pantalla con opciones
+                    new InformacionView(3);
                     break;
                 
                 case "ranking":
-                    new RankingView(1);
+                    RankingView vistaRanking = new RankingView(1, model);
+                    new RankingController(vistaRanking, model);
                     break;
                 
                 case "MenuSalir":

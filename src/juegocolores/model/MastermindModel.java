@@ -5,11 +5,16 @@
  */
 package juegocolores.model;
 
+import ini.view.JuegoColoresView;
 import java.awt.Color;
+import java.io.File;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
+import jug1.view.Jug1View;
+import jug2.view.Jug2View;
+import javax.sound.sampled.*;
 
 /**
  *
@@ -38,12 +43,19 @@ public class MastermindModel {
     private int[] aciertos5 = {0,0,0,0};
     
     private int acertado = 0;
+    private Color[] coloresAcertados = {Color.white, Color.white, Color.white, Color.white};
     
     private Color[] intento1 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento2 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento3 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento4 = {Color.white, Color.white, Color.white, Color.white};
     private Color[] intento5 = {Color.white, Color.white, Color.white, Color.white};
+    
+    private JuegoColoresView vista1;
+    private Jug1View vista2;
+    private Jug2View vista3;
+    
+    Clip music;
     
     boolean fin = false;
     
@@ -136,14 +148,19 @@ public class MastermindModel {
     {
         final Random random = new Random();
         final Set<Integer> intSet = new HashSet<>();
+        int color = 0;
         
         while (intSet.size() < 4)
-            intSet.add(random.nextInt(8)+1);
+            intSet.add(random.nextInt(7-0)+0);
         
         final Iterator<Integer> iter = intSet.iterator();
         
         for(int i = 0; iter.hasNext(); i++)
-            addColor(colores[iter.next()]);
+        {
+            color = iter.next();
+            addColor(colores[color]);
+            siguienteCirc();
+        }
     }
     
     public Boolean comprobarCompleto()
@@ -382,8 +399,6 @@ public class MastermindModel {
     public void reiniciar() {
         nombre = "";
         jugadas = 0;
-        modo = 2;
-        daltonicos = false;
         seleccionado = 1;
         seleccionado2 = 1;
         numColores = 8;
@@ -409,5 +424,79 @@ public class MastermindModel {
             intento4[i] = Color.white;
             intento5[i] = Color.white;
         }
+        
+        if(vista3 != null)
+            vista3.dispose();
+        
+        if(vista2 != null)
+            vista2.dispose();
+        
+        if(vista1 != null)
+            vista1.setVisible(true);
+    }
+    
+    public void setVista1 (JuegoColoresView vista1)
+    {
+        this.vista1 = vista1;
+    }
+    
+    public void setVista2 (Jug1View vista2)
+    {
+        this.vista2 = vista2;
+    }
+    
+    public void setVista3 (Jug2View vista3)
+    {
+        this.vista3 = vista3;
+    }
+
+    public boolean colorAcertado(int i) {
+        boolean acertado = false;
+        
+        for(int j = 0; j < intento1.length; j++)
+        {
+            if (intento1[j] == colores[i] && aciertos1[i] == 2)
+                acertado = true;
+        }
+        
+        return acertado;
+    }
+    
+    public void setMusic(){
+        try {
+            String path = System.getProperty("user.dir")+"/music/zavodilla.wav";
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
+            music = AudioSystem.getClip();
+            music.open(inputStream);
+        }catch (Exception e){
+            System.out.println("Musica no encontrada");
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    public void startMusic(){
+        music.start();
+    }
+    
+    public void stopMusic(){
+        music.stop();
+    }
+    
+    public void resetMusic(){
+        music.setMicrosecondPosition(0);
+    }
+    
+    public void quitMusic(){
+        music.close();
+    }
+    
+    public void changeMusicLevel(int musicLevel){
+        FloatControl volumen = (FloatControl)music.getControl(FloatControl.Type.MASTER_GAIN);
+        
+        float level = (float)musicLevel/100.0f;
+        
+        float range = volumen.getMaximum() - volumen.getMinimum();
+        float gain = (range * level) + volumen.getMinimum();
+        volumen.setValue(gain);
     }
 }

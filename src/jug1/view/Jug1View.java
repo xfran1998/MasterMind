@@ -1,5 +1,6 @@
 package jug1.view;
 
+import general.view.MastermindMenuBar;
 import ini.view.MyDefaultMetalTheme3;
 import ini.view.TituloPanel;
 import java.awt.BorderLayout;
@@ -27,6 +28,7 @@ public class Jug1View extends JFrame{
     private SeleccionPanel seleccion;
     private BotonPanel boton;
     private MastermindModel model;
+    private MastermindMenuBar menu;
 
     public Jug1View(MastermindModel model){
         
@@ -34,7 +36,7 @@ public class Jug1View extends JFrame{
         setLayout(new BorderLayout());
         //hacer que al cerrar desde la x se cierre el programa
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600,400);
+        setSize(600,420);
         setTitle("Mastermind - Jugador 1");
         setResizable(false);
         
@@ -55,6 +57,9 @@ public class Jug1View extends JFrame{
         SwingUtilities.updateComponentTreeUI(this);
         
         //componentes de la vista
+        menu = new MastermindMenuBar();
+        setJMenuBar(menu);
+        
         this.model = model;
         
         colores = new ColoresPanel(1, model);
@@ -74,6 +79,7 @@ public class Jug1View extends JFrame{
 
     public void setActionListener(ActionListener al) {
         boton.setActionListener(al);
+        menu.setActionListener(al);
     }
 
     public void setMyMouseListener(MouseListener ml) {

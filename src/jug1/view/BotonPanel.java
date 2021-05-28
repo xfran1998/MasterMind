@@ -29,17 +29,26 @@ public class BotonPanel extends JPanel{
         JPanel centrar = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
         
         boton = new JButton("Acabar turno");
+        boton.setActionCommand("siguiente");
         if (tipo == 2)
             boton.setText("Probar Suerte");
         if (tipo == 3)
+        {
             boton.setText("Cerrar");
+            boton.setActionCommand("cerrar");
+        }   
+        if (tipo == 4)
+        {
+            boton.setText("Nueva Partida");
+            boton.setActionCommand("reinicio");
+        }
         
         boton.setAlignmentX(CENTER_ALIGNMENT);
         boton.setBackground(new Color(0, 0, 0));
         boton.setForeground(new Color(210, 200, 200));
         boton.setFont(new Font("Monoespaced", Font.PLAIN, 18));
         boton.setFocusPainted(false);
-        boton.setActionCommand("siguiente");
+        
 
         Border bordeExt = BorderFactory.createMatteBorder(2, 2, 0, 0, new Color(65, 63, 245));
         Border bordeExt2 = BorderFactory.createMatteBorder(0, 2, 2, 0, new Color(111, 65, 245));
@@ -64,6 +73,6 @@ public class BotonPanel extends JPanel{
 
     public void cambiaBoton() {
         boton.setText("Ver ranking");
-        boton.setActionCommand("ranking");
+        boton.setActionCommand("rank");
     }
 }

@@ -5,6 +5,7 @@
  */
 package juegocolores.controller;
 
+import informacion.view.InformacionView;
 import ini.view.JuegoColoresView;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.awt.event.MouseListener;
 import juegocolores.model.MastermindModel;
 import jug1.view.Jug1View;
 import jug2.view.Jug2View;
+import ranking.view.RankingView;
 
 /**
  *
@@ -40,10 +42,43 @@ public class Jug1Controller {
             if (comando == "siguiente")
                 if (model.comprobarCompleto())
                 {
+                    //Empezar musica
+                    model.setMusic();
+                    model.startMusic();
+                    
+                    model.setVista2(view);
                     view.setVisible(false);
                     Jug2View viewJug2 = new Jug2View(model);
                     Jug2Controller controllerJug1 = new Jug2Controller(viewJug2, model);
                 }
+            
+            switch (comando) {
+                case "reiniciar":
+                    model.setVista2(view);
+                    model.reiniciar();
+                    break;
+                    
+                case "opciones":
+                    new InformacionView(3);
+                    break;
+                
+                case "ranking":
+                    RankingView vistaRanking = new RankingView(1, model);
+                    new RankingController(vistaRanking, model);
+                    break;
+                
+                case "MenuSalir":
+                    System.exit(0);
+                    break;
+                    
+                case "instruc":
+                    new InformacionView(1);
+                    break;
+                    
+                case "info":
+                    new InformacionView(2);
+                    break;
+            }
         }
     }
     

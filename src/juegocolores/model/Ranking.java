@@ -30,7 +30,7 @@ public class Ranking {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("F en el chat");
+            System.out.println("no ha funcionado");
             e.printStackTrace();
         }
     }

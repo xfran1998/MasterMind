@@ -39,6 +39,11 @@ public class InformacionView extends JFrame{
             setSize(700,200);
             setTitle("Mastermind - Informacion");
         }
+        else if (tipo == 3)
+        {
+            setSize(700,500);
+            setTitle("Mastermind - Opciones");
+        }
         setResizable(false);
         
         this.setLocationRelativeTo(null);

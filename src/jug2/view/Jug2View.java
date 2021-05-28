@@ -1,5 +1,6 @@
 package jug2.view;
 
+import general.view.MastermindMenuBar;
 import ini.view.MyDefaultMetalTheme3;
 import ini.view.TituloPanel;
 import java.awt.BorderLayout;
@@ -20,6 +21,7 @@ import juegocolores.model.MastermindModel;
 public class Jug2View extends JFrame{
     private DerechaPanel derecha;
     private IzquierdaPanel izquierda;
+    private MastermindMenuBar menu;
 
     public Jug2View(MastermindModel model){
         
@@ -27,7 +29,7 @@ public class Jug2View extends JFrame{
         setLayout(new BorderLayout());
         //hacer que al cerrar desde la x se cierre el programa
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000,700);
+        setSize(1000,720);
         setTitle("Mastermind - Jugador 2");
         setResizable(false);
         
@@ -48,6 +50,8 @@ public class Jug2View extends JFrame{
         SwingUtilities.updateComponentTreeUI(this);
         
         //componentes de la vista
+        menu = new MastermindMenuBar();
+        setJMenuBar(menu);
         
         izquierda = new IzquierdaPanel(model);
         izquierda.setPreferredSize(new Dimension(550,550));
@@ -65,6 +69,7 @@ public class Jug2View extends JFrame{
 
     public void setActionListener(ActionListener al) {
         derecha.setActionListener(al);
+        menu.setActionListener(al);
     }
 
     public void setMyMouseListener(MouseListener ml) {
